@@ -41,6 +41,18 @@ module.exports = function(grunt) {
 		},
 
 		// JS压缩
-		jsMinify
+		freemarker: {
+			options: {
+                views: "views",
+                out: "view-mock/views"
+            },
+            test: {
+                src: "mocks/*.js"
+            }
+		}
+	})
+
+	grunt.registerTask('default',function(target){
+		return grunt.task.run("freemarker:test");
 	})
 }

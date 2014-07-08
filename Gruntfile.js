@@ -18,26 +18,15 @@ module.exports = function(grunt) {
 
 		// 编译less
 		less:{
-			options : {
-				paths: ['assets/css'],
-			},
-			dev: {
-				files: {
-					'assets/css/core.css':'assets/less/core.less',
-					'assets/css/activity/*.css':'assets/less/activity/**/*.less',
-					'assets/css/modules/*.css':'assets/less/modules/**/*.less'
-				}
-			},
-			pro: {
-				options : {
-					cleancss: true
-				},
-				files: {
-					'assets/css/core.css':'assets/less/core.less',
-					'assets/css/activity/*.css':'assets/less/activity/**/*.less',
-					'assets/css/modules/*.css':'assets/less/modules/**/*.less'
-				}
-			}
+		    build: {
+		        files: [{
+		          expand: true,
+		          cwd: './assets/less',
+		          src: ['**/*.less'],
+		          dest: './assets/css',
+		          ext: '.css'
+		        }]
+		    }
 		},
 
 		// JS压缩
@@ -49,10 +38,26 @@ module.exports = function(grunt) {
             test: {
                 src: "mocks/*.js"
             }
+		},
+
+		watch: {
+			js: {
+				files: ['./assets/js/{,*/}*.js']
+			},
+			styles: {
+				files: ['./assets/less/{,*/}*.less'],
+        		tasks: ['less:build']
+			},
+			html: {
+				files: ['./views/{,*/}*.ftl'],
+        		tasks: ['freemarker:test']
+			}
 		}
 	})
 
 	grunt.registerTask('default',function(target){
-		return grunt.task.run("freemarker:test");
+		return grunt.task.run(["freemarker:test","watch"]);
 	})
+
+	grunt.registerTask('lss',["less:build"])
 }

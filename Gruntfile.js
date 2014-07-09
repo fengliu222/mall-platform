@@ -33,7 +33,7 @@ module.exports = function(grunt) {
 		freemarker: {
 			options: {
                 views: "views",
-                out: "view-mock/views"
+                out: "view-tmp"
             },
             test: {
                 src: "mocks/*.js"
@@ -41,22 +41,43 @@ module.exports = function(grunt) {
 		},
 
 		watch: {
-			js: {
-				files: ['./assets/js/{,*/}*.js']
-			},
 			styles: {
 				files: ['./assets/less/{,*/}*.less'],
-        		tasks: ['less:build']
+        tasks: ['less:build']
 			},
 			html: {
 				files: ['./views/{,*/}*.ftl'],
-        		tasks: ['freemarker:test']
+        tasks: ['freemarker:test']
+			},
+			livereload: {
+				options: {
+          livereload: 35729 // this port must be same with the connect livereload port
+        },
+				files: [
+          './view-tmp/*.html',
+          './assets/css/{,*/}*.css',
+          './assets/js/{,*/}*.js',
+          './mocks/(,*/}*.js',
+          './Gruntfile.js',
+          './assets/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+        ]
+			}
+		},
+
+		connect: {
+			server: {
+				options:{
+					port: 9000,
+					base:'./',
+					hostname: 'localhost',
+					livereload: 35729
+				}
 			}
 		}
 	})
 
 	grunt.registerTask('default',function(target){
-		return grunt.task.run(["freemarker:test","watch"]);
+		return grunt.task.run(["freemarker:test","connect:server","watch"]);
 	})
 
 	grunt.registerTask('lss',["less:build"])

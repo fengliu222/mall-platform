@@ -2,6 +2,7 @@ module.exports = {
 	view: '/index.ftl',
 	out: '/index.html',
 	data: {
-		name: 'moe'
+		name: 'moe',
+		assets: '../assets'
 	}
 }

@@ -1,8 +1,7 @@
 @import "./var.less";
 
 // 溢出部分省略号
-.no-elicpe(){
-	
+.f-ellipsis(){
 }
 
 // display: inline-block
@@ -10,4 +9,130 @@
 	display: inline-block;
 	*display: inline;
 	*zoom: 1;
+}
+
+/**
+ * 清除浮动
+ * @auther Maple
+ */
+.clearfix() {
+	*zoom: 1;
+	&:after {
+		visibility: hidden;
+		clear: both;
+		display: block;
+		height: 0;
+		content: " ";
+		font-size: 0;
+	}
+}
+
+/**
+ * 文字超出省略
+ * @auther Maple
+ */
+.text-ellipsis() {
+	overflow: hidden;
+	white-space: nowrap;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+}
+
+/**
+ * css3 圆角
+ * @auther Maple
+ */
+.border-radius(@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+.border-radius(@radius1, @radius2, @radius3, @radius4) {
+	-webkit-border-radius: @arguments;
+	-moz-border-radius: @arguments;
+	border-radius: @arguments;
+}
+
+/**
+ * css3 盒模型阴影
+ * @auther Maple
+ */
+.box-shadow(@shadow: 5px 5px 10px #cccccc) {
+	-webkit-box-shadow: @shadow;
+	-moz-box-shadow: @shadow;
+	box-shadow: @shadow;
+}
+
+/**
+ * css3 文字阴影(支持多重阴影)
+ * @auther Maple
+ */
+.text-shadow(@shadow: 5px 5px 5px #333){
+	text-shadow: @shadow;
+}
+.text-shadow(@shadow: 5px 5px 5px #333, @rest...){
+	text-shadow: @shadow, @rest;
+}
+
+/**
+ * 背景渐变（竖向）
+ * @auther Maple
+ */
+.linear-gradient(@startColor,@endColor){
+	@argbStartColor:argb(@startColor);
+	@argbEndColor:argb(@endColor);
+
+	background-image: -moz-linear-gradient(top,@startColor,@endColor);  /* FF3.6+ */
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, @startColor, @endColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background-image: -ms-linear-gradient(top,@startColor,@endColor); /* IE10 */
+	background-image: -o-linear-gradient(top,@startColor,@endColor); /* Opera 11.10+ */
+	background-image: linear-gradient(top, @startColor, @endColor);
+	filter: ~"progid:DXImageTransform.Microsoft.gradient(startColorstr=@{argbStartColor},endColors=@{argbEndColor})";
+}
+
+/**
+ * ie6 min-width & min-height
+ * @auther Maple
+ */
+.min-width(@minWidth) {
+	min-width: @minWidth;
+	width: auto;
+	_width: @minWidth;
+}
+.min-height(@minHeight) {
+	min-height: @minHeight;
+	height: auto;
+	_height: @minHeight;
+}
+
+/**
+ * 固定宽度居中
+ * @auther Maple
+ */
+.center-block() {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/**
+ * 块级元素inline-block
+ * @auther Maple
+ */
+.inline-block() {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+
+/**
+ * 文字隐藏(可用于图片button，利于SEO)
+ * @auther Maple
+ */
+.hide-text() {
+	font: ~"0/0" a;
+	color: transparent;
+	text-shadow: none;
+	background-color: transparent;
+	border: 0;
 }

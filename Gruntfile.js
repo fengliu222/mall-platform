@@ -18,49 +18,49 @@ module.exports = function(grunt) {
 
 		// 编译less
 		less:{
-		    build: {
-		        files: [{
-		          expand: true,
-		          cwd: './assets/less',
-		          src: ['**/*.less'],
-		          dest: './assets/css',
-		          ext: '.css'
-		        }]
-		    }
+			build: {
+				files: [{
+					expand: true,
+					cwd: './assets/less',
+					src: ['**/*.less'],
+					dest: './assets/css',
+					ext: '.css'
+				}]
+			}
 		},
 
 		// JS压缩
 		freemarker: {
 			options: {
-                views: "views",
-                out: "view-tmp"
-            },
-            test: {
-                src: "mocks/*.js"
-            }
+				views: "views",
+				out: "view-tmp"
+			},
+			test: {
+				src: "mocks/*.js"
+			}
 		},
 
 		watch: {
 			styles: {
 				files: ['./assets/less/{,*/}*.less'],
-        tasks: ['less:build']
+				tasks: ['less:build']
 			},
 			html: {
 				files: ['./views/{,*/}*.ftl'],
-        tasks: ['freemarker:test']
+				tasks: ['freemarker:test']
 			},
 			livereload: {
 				options: {
-          livereload: 35729 // this port must be same with the connect livereload port
-        },
+					livereload: 35729 // this port must be same with the connect livereload port
+				},
 				files: [
-          './view-tmp/*.html',
-          './assets/css/{,*/}*.css',
-          './assets/js/{,*/}*.js',
-          './mocks/(,*/}*.js',
-          './Gruntfile.js',
-          './assets/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
+					'./view-tmp/*.html',
+					'./assets/css/{,*/}*.css',
+					'./assets/js/{,*/}*.js',
+					'./mocks/(,*/}*.js',
+					'./Gruntfile.js',
+					'./assets/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+				]
 			}
 		},
 

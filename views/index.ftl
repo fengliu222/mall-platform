@@ -7,6 +7,8 @@
 </head>
 <body>
 	<h3>Hello ${name}!</h3>
+
+	<script id="seajsnode" src="${assets}/js/vendor/seajs/seajs/2.2.1/sea.js"></script>
 	<script type="text/javascript" src="${assets}/js/page/index.js"></script>
 </body>
 </html>

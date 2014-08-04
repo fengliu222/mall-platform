@@ -7,8 +7,8 @@
 </head>
 <body>
 	<h3>Hello ${name}!</h3>
-	<div id="list" data-component="charactor.list"></div>
-	
+	<div id="list" data-component="charactor.list" data-component-id="rank.list"></div>
+
 	<script id="seajsnode" src="${assets}/js/vendor/seajs/seajs/2.2.1/sea.js"></script>
 	<script src="${assets}/js/vendor/seajs/seajs-combo/1.0.1/seajs-combo.js"></script>
 	<script type="text/javascript" src="../assets/js/config.js"></script>

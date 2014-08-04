@@ -32,8 +32,8 @@ module.exports = function(grunt) {
 		// JS压缩
 		freemarker: {
 			options: {
-				views: "views",
-				out: "view-tmp"
+				views: "WEB-INF/view",
+				out: "staticPage"
 			},
 			test: {
 				src: "mocks/*.js"
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
 				tasks: ['less:build']
 			},
 			html: {
-				files: ['./views/{,*/}*.ftl'],
+				files: ['./WEB-INF/view/{,*/}*.ftl'],
 				tasks: ['freemarker:test']
 			},
 			livereload: {

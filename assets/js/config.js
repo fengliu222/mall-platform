@@ -1,4 +1,4 @@
-var VERSION = '20140629';
+var VERSION = +new Date();
 seajs.config({
 	path:{
 		'arale':'./vendor/arale'

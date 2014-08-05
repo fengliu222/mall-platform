@@ -1,0 +1,120 @@
+/*
+LESS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: @icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+@icon-home: x y offset_x offset_y width height total_width total_height image_path;
+*/
+/*
+The provided classes are intended to be used with the array-like variables
+
+.icon-home {
+  .sprite-width(@icon-home);
+}
+.icon-email {
+  .sprite(@icon-email);
+}
+*/
+/*
+LESS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: @icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+@icon-home: x y offset_x offset_y width height total_width total_height image_path;
+*/
+/*
+The provided classes are intended to be used with the array-like variables
+
+.icon-home {
+  .sprite-width(@icon-home);
+}
+.icon-email {
+  .sprite(@icon-email);
+}
+*/
+.game-pic-sh {
+  background: url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px 0px;
+  height: 150px;
+  width: 230px;
+}
+.game-pic-tl {
+  background: url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px -150px;
+  height: 150px;
+  width: 230px;
+}
+.game-pic-ld {
+  background: url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px -300px;
+  height: 150px;
+  width: 230px;
+}
+.game-pic-dp {
+  background: url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px -450px;
+  height: 150px;
+  width: 230px;
+}
+.game-pic-hx {
+  background: url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px -600px;
+  height: 150px;
+  width: 230px;
+}
+.tips-busi {
+  background: url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px -750px;
+  height: 29px;
+  width: 31px;
+}
+.tips-busi {
+  background: url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px -779px;
+  height: 29px;
+  width: 31px;
+}
+.tips-active {
+  background: url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px -808px;
+  height: 29px;
+  width: 31px;
+}
+/**
+ * 清除浮动
+ * @auther Maple
+ */
+/**
+ * 文字超出省略
+ * @auther Maple
+ */
+/**
+ * css3 圆角
+ * @auther Maple
+ */
+/**
+ * css3 盒模型阴影
+ * @auther Maple
+ */
+/**
+ * css3 文字阴影(支持多重阴影)
+ * @auther Maple
+ */
+/**
+ * 背景渐变（竖向）
+ * @auther Maple
+ */
+/**
+ * ie6 min-width & min-height
+ * @auther Maple
+ */
+/**
+ * 固定宽度居中
+ * @auther Maple
+ */
+/**
+ * 块级元素inline-block
+ * @auther Maple
+ */
+/**
+ * 文字隐藏(可用于图片button，利于SEO)
+ * @auther Maple
+ */

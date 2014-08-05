@@ -63,7 +63,29 @@ module.exports = function(grunt) {
 				]
 			}
 		},
-
+		sprite:{
+			site: {
+		        src: ['./assets/img/index/logo.png','./assets/img/index/tip-lt.png','./assets/img/index/tip-rb.png','./assets/img/index/tab-active.png'],
+		        destImg: './assets/img/common/site-sprite.png',
+		        destCSS: './assets/less/sprites/site-sprite.less',
+		        cssFormat: 'less',
+		        imgPath:'@{imgPath}/common/site-sprite.png'
+		    },
+		    index: {
+		        src: ['./assets/img/index/logo-*.png'],
+		        destImg: './assets/img/index/index-sprite.png',
+		        destCSS: './assets/less/sprites/index-sprite.less',
+		        imgPath:'@{imgPath}/index/index-sprite.png',
+		        cssFormat: 'less'
+		    },
+		    index_jpg: {
+		        src: ['./assets/img/index/game-pic-*.jpg'],
+		        destImg: './assets/img/index/index-game-sprite.jpg',
+		        destCSS: './assets/less/sprites/index-sprite.less',
+		        imgPath:'@{imgPath}/index/index-game-sprite.jpg',
+		        cssFormat: 'less'
+		    }
+		},
 		connect: {
 			server: {
 				options:{

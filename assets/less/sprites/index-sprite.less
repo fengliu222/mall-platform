@@ -1,0 +1,127 @@
+@imgPath: "/assets/img";
+/*
+LESS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: @icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+@icon-home: x y offset_x offset_y width height total_width total_height image_path;
+*/
+@logo-dj-x: 0px;
+@logo-dj-y: 0px;
+@logo-dj-offset-x: 0px;
+@logo-dj-offset-y: 0px;
+@logo-dj-width: 149px;
+@logo-dj-height: 41px;
+@logo-dj-total-width: 149px;
+@logo-dj-total-height: 287px;
+@logo-dj-image: '@{imgPath}/index/index-sprite.png';
+@logo-dj: 0px 0px 0px 0px 149px 41px 149px 287px '@{imgPath}/index/index-sprite.png';
+@logo-dp-x: 0px;
+@logo-dp-y: 41px;
+@logo-dp-offset-x: 0px;
+@logo-dp-offset-y: -41px;
+@logo-dp-width: 149px;
+@logo-dp-height: 41px;
+@logo-dp-total-width: 149px;
+@logo-dp-total-height: 287px;
+@logo-dp-image: '@{imgPath}/index/index-sprite.png';
+@logo-dp: 0px 41px 0px -41px 149px 41px 149px 287px '@{imgPath}/index/index-sprite.png';
+@logo-hx-x: 0px;
+@logo-hx-y: 82px;
+@logo-hx-offset-x: 0px;
+@logo-hx-offset-y: -82px;
+@logo-hx-width: 149px;
+@logo-hx-height: 41px;
+@logo-hx-total-width: 149px;
+@logo-hx-total-height: 287px;
+@logo-hx-image: '@{imgPath}/index/index-sprite.png';
+@logo-hx: 0px 82px 0px -82px 149px 41px 149px 287px '@{imgPath}/index/index-sprite.png';
+@logo-ld-x: 0px;
+@logo-ld-y: 123px;
+@logo-ld-offset-x: 0px;
+@logo-ld-offset-y: -123px;
+@logo-ld-width: 149px;
+@logo-ld-height: 41px;
+@logo-ld-total-width: 149px;
+@logo-ld-total-height: 287px;
+@logo-ld-image: '@{imgPath}/index/index-sprite.png';
+@logo-ld: 0px 123px 0px -123px 149px 41px 149px 287px '@{imgPath}/index/index-sprite.png';
+@logo-qs-x: 0px;
+@logo-qs-y: 164px;
+@logo-qs-offset-x: 0px;
+@logo-qs-offset-y: -164px;
+@logo-qs-width: 148px;
+@logo-qs-height: 41px;
+@logo-qs-total-width: 149px;
+@logo-qs-total-height: 287px;
+@logo-qs-image: '@{imgPath}/index/index-sprite.png';
+@logo-qs: 0px 164px 0px -164px 148px 41px 149px 287px '@{imgPath}/index/index-sprite.png';
+@logo-sh-x: 0px;
+@logo-sh-y: 205px;
+@logo-sh-offset-x: 0px;
+@logo-sh-offset-y: -205px;
+@logo-sh-width: 149px;
+@logo-sh-height: 41px;
+@logo-sh-total-width: 149px;
+@logo-sh-total-height: 287px;
+@logo-sh-image: '@{imgPath}/index/index-sprite.png';
+@logo-sh: 0px 205px 0px -205px 149px 41px 149px 287px '@{imgPath}/index/index-sprite.png';
+@logo-tl-x: 0px;
+@logo-tl-y: 246px;
+@logo-tl-offset-x: 0px;
+@logo-tl-offset-y: -246px;
+@logo-tl-width: 149px;
+@logo-tl-height: 41px;
+@logo-tl-total-width: 149px;
+@logo-tl-total-height: 287px;
+@logo-tl-image: '@{imgPath}/index/index-sprite.png';
+@logo-tl: 0px 246px 0px -246px 149px 41px 149px 287px '@{imgPath}/index/index-sprite.png';
+
+/*
+The provided classes are intended to be used with the array-like variables
+
+.icon-home {
+  .sprite-width(@icon-home);
+}
+.icon-email {
+  .sprite(@icon-email);
+}
+*/
+.sprite-width(@sprite) {
+  width: ~`"@{sprite}".split(', ')[4]`;
+}
+
+.sprite-height(@sprite) {
+  height: ~`"@{sprite}".split(', ')[5]`;
+}
+
+.sprite-position(@sprite) {
+  @sprite-offset-x: ~`"@{sprite}".split(', ')[2]`;
+  @sprite-offset-y: ~`"@{sprite}".split(', ')[3]`;
+  background-position: @sprite-offset-x  @sprite-offset-y;
+}
+
+.sprite-image(@sprite) {
+  @sprite-image: ~`"@{sprite}".split(', ')[8].slice(1, -2)`;
+  background-image: url(@sprite-image);
+}
+
+.sprite(@sprite) {
+  .sprite-image(@sprite);
+  .sprite-position(@sprite);
+  .sprite-width(@sprite);
+  .sprite-height(@sprite);
+}
+
+
+.game-pic-sh{background:url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px 0px;height:150px;width:230px;}
+.game-pic-tl{background:url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px -150px;height:150px;width:230px;}
+.game-pic-ld{background:url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px -300px;height:150px;width:230px;}
+.game-pic-dp{background:url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px -450px;height:150px;width:230px;}
+.game-pic-hx {background:url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px -600px;height:150px;width:230px;}
+.tips-busi{background:url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px -750px;height:29px;width:31px;}
+.tips-busi{background:url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px -779px;height:29px;width:31px;}
+.tips-active{background:url(@{imgPath}/index/allbgs.jpeg) no-repeat 0px -808px;height:29px;width:31px;}

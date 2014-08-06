@@ -1,11 +1,11 @@
 /**
  * TODO:
  * ** JS压缩
- * ** LESS编译
- * ** Livereload
- * ** freemarker编译
- * ** Css自动前缀
- * ** Css sprites合并
+ * ** LESS编译 √
+ * ** Livereload √
+ * ** freemarker编译 √
+ * ** Css自动前缀 √
+ * ** Css sprites合并 √
  * ** 批量图片压缩
  */
 'use strict';
@@ -19,12 +19,16 @@ module.exports = function(grunt) {
 		// 编译less
 		less:{
 			build: {
+				options:{
+					cleancss: true
+				},
 				files: [{
 					expand: true,
 					cwd: './assets/less',
-					src: ['**/*.less'],
+					src: ['**/*.less','!var.less','!func.less','!reset.less','!core.less','!sprites/*.less'],
 					dest: './assets/css',
-					ext: '.css'
+					ext: '.css',
+					cleancss:true
 				}]
 			}
 		},
@@ -43,18 +47,25 @@ module.exports = function(grunt) {
 		watch: {
 			styles: {
 				files: ['./assets/less/{,*/}*.less'],
-				tasks: ['less:build']
+				tasks: ['less:build','autoprefixer:build']
 			},
 			html: {
 				files: ['./WEB-INF/view/{,*/}*.ftl'],
 				tasks: ['freemarker:test']
+			},
+			template:{
+				files: ['./WEB-INF/view/tpl/**/*.html'],
+				tasks: ['tmod'],
+				options: {
+                    spawn: false
+                }
 			},
 			livereload: {
 				options: {
 					livereload: 35729 // this port must be same with the connect livereload port
 				},
 				files: [
-					'./view-tmp/*.html',
+					'./staticPage/*.html',
 					'./assets/css/{,*/}*.css',
 					'./assets/js/{,*/}*.js',
 					'./mocks/(,*/}*.js',
@@ -62,6 +73,15 @@ module.exports = function(grunt) {
 					'./assets/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
 				]
 			}
+		},
+
+		autoprefixer: {
+		  build: {
+		    expand: true,
+		    cwd: './assets/css/',
+		    src: [ '**/*.css' ],
+		    dest: './assets/css/'
+		  }
 		},
 		sprite:{
 			site: {
@@ -86,6 +106,16 @@ module.exports = function(grunt) {
 		        cssFormat: 'less'
 		    }
 		},
+		tmod:{
+			template:{
+				src:'./WEB-INF/view/tpl/**/*.html',
+				dest:'./assets/js/template',
+				options:{
+					base:'./WEB-INF/view/tpl',
+					type: "cmd"
+				}
+			}
+		},
 		connect: {
 			server: {
 				options:{
@@ -99,7 +129,7 @@ module.exports = function(grunt) {
 	})
 
 	grunt.registerTask('default',function(target){
-		return grunt.task.run(["freemarker:test","connect:server","watch"]);
+		return grunt.task.run(["freemarker:test","less:build","autoprefixer:build","connect:server","watch"]);
 	})
 
 	grunt.registerTask('lss',["less:build"])

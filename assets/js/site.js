@@ -13,6 +13,7 @@ define(function(require,exports,module){
 
 	/* 组件加载器 */
 	var componentsLoader = require("./modules/componentsLoader");
+	var template = require("template");
 
 	$(document).on("componentsReady",function(){
 		console.log(1)

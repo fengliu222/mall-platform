@@ -1,8 +1,5 @@
 @import "./var.less";
 
-// 溢出部分省略号
-.f-ellipsis(){
-}
 
 
 /**
@@ -11,6 +8,7 @@
  */
 .clearfix() {
 	*zoom: 1;
+	clear: both;
 	&:after {
 		visibility: hidden;
 		clear: both;
@@ -130,3 +128,23 @@
 	background-color: transparent;
 	border: 0;
 }
+
+/* 文字默认样式*/
+.font-default(){
+	color: @color-font-default;
+	&:hover{
+		color:@color-font-hover;
+	}
+}
+
+/* 链接默认样式 */
+.link-default(){
+	color:@color-link-default;
+
+	&:hover{
+		text-decoration: none;
+	}
+}
+
+/* iconfont */
+

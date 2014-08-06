@@ -1,7 +1,8 @@
 var VERSION = +new Date();
 seajs.config({
 	path:{
-		'arale':'./vendor/arale'
+		'arale':'./vendor/arale',
+		'template':'./vendor/template' 
 	},
 	alias: {
 		
@@ -11,6 +12,7 @@ seajs.config({
 		'popup': 'arale/popup/1.1.6/popup',
 		'confirmBox': 'arale/dialog/1.3.0/confirmbox',
 		'event':'arale/events/1.1.0/events-debug'
+		
 	},
 
 	map: [
@@ -23,9 +25,10 @@ seajs.config({
     	'$'
 	],
 
-	// comboExcludes: /.*/,
+	comboExcludes: /.*/,
 	comboSuffix: VERSION ? '?t=' + VERSION : '',
 
 	debug: false
 });
+
 seajs.use("../assets/js/site");

@@ -1,49 +1,5 @@
-####mall-platform 项目结构DEMO
+新电商平台的一些前端说明文档
 
-```javascript
-assets\        //静态文件目录
-
-  -> css\     //编译后的CSS目录
-  
-  -> img\     //图片文件夹
-  
-    -> activity\ //活动图片文件夹
-    
-    -> common\    //通用图片文件夹
-    
-  -> js\      //JS文件
-  
-    -> activity\  //活动相关JS文件
-    
-    -> modules\   //通用模块JS
-    
-    -> page\      //站点页面JS（如列表页，首页等）
-    
-    -> vendor\    //外部库
-    
-    -> main.js    //所有JS的入口
-    
-  -> less\
-  
-    -> activity\ //活动相关样式
-    
-    -> modules\ //模块相关样式
-    
-    -> core.less //全站通用样式
-    
-    -> func.less //通用函数库
-    
-    -> var.less //全站通用变量
-    
-    
-views\ //页面资源，待定
-
-build\ //构建目录
-
-gulpfile.js //gulp任务配置
-
-```
-
-####一些约定
-
-1.  在编写LESS的过程中，模块样式和活动样式只需要import *func.less* 函数即可，因为func.less中已经引入了var.less
+* [目录结构](https://github.com/fengliu222/mall-platform/wiki/%E7%94%B5%E5%95%86%E5%B9%B3%E5%8F%B0%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E)
+* [前端架构](https://github.com/fengliu222/mall-platform/wiki/%E7%94%B5%E5%95%86%E6%96%B0%E5%B9%B3%E5%8F%B0%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E8%AF%B4%E6%98%8E)
+* [关于系统组件的一些说明](https://github.com/fengliu222/mall-platform/wiki/%E5%85%B3%E4%BA%8E%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8)

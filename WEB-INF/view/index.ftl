@@ -9,6 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="${assets}/css/modules/index.css">
 </head>
 <body>
+	<div class="aa" data-component="charactor.list" data-require-id="charactor-list"></div>
+	<div class="aa" data-component="charactor.list" data-require-id="rank-list"></div>
 	<section class="g-doc">
 		<div class="g-body">
 

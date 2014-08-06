@@ -16,7 +16,6 @@ define(function(require,exports,module){
 	var template = require("template");
 
 	$(document).on("componentsReady",function(){
-		console.log(1)
 	})
 
 })

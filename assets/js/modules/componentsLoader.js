@@ -41,7 +41,7 @@ define(function(require,exports,module){
 		var hasLoadCount = 0;
 		/* 得到所有组件的包裹元素 */
 		var compoArr = getElementsByAttribute("data-component");
-
+		var widgetTemp = {};
 		for(var i=0;i<compoArr.length;i++){
 
 			/* 解析组件名，拼模块地址 */
@@ -54,18 +54,29 @@ define(function(require,exports,module){
 				require.async(moduleSrc,function(obj){
 					/* 为模块生成一个ID，若指定ID，则使用指定的ID */
 					var _data = $(compoArr[index]).data();
-					var compoID = _data.componentId ? _data.componentId : (+new Date());
-					compoObj[compoID]=obj;
+					var compoID = _data.requireId ? _data.requireId : (+new Date());
+
+					define(compoID,function(require,exports,module){
+						if(!widgetTemp[compoID]){
+							widgetTemp[compoID] = obj({
+								context:$(compoArr[i])
+							})
+							module.exports = widgetTemp[compoID];
+						}else{
+							module.exports = widgetTemp[compoID];
+						}
+						
+					});
 
 					/* 表示模块加载完成 */
 					hasLoadCount++;
 
 					/* 为模块定义上下文*/
-					if(typeof obj == "function") obj({context:$(compoArr[index])})
+					// if(typeof obj == "function") obj({context:$(compoArr[index])})
 
 					/* 触发指定DOM的loadReady事件*/
 					$(compoArr[index]).trigger("loadReady");
-
+					console.log(hasLoadCount,compoArr.length)
 					/* 若所有模块都加载完毕，则触发全局的componentsReady事件*/
 					if(hasLoadCount==compoArr.length){
 						$(document).trigger("componentsReady");

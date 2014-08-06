@@ -11,8 +11,8 @@ seajs.config({
 		'$': 'jquery/jquery/1.10.1/jquery',
 		'popup': 'arale/popup/1.1.6/popup',
 		'confirmBox': 'arale/dialog/1.3.0/confirmbox',
-		'event':'arale/events/1.1.0/events-debug'
-		
+		'event':'arale/events/1.1.0/events-debug',
+		'widget':'arale/widget/1.1.1/widget'
 	},
 
 	map: [

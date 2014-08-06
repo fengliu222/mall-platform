@@ -6,8 +6,17 @@ define(function(require){
 			name:"moe"
 		}
 	}
-	console.log(template(goodsData))
-	$("#list").on("loadReady",function(data){
+	$(document).on("componentsReady",function(data){
 		console.log(">>loadReady ",data)
+
+		seajs.use("charactor-list",function(obj){
+			obj.set("a","123")
+		});	
+
+		seajs.use("charactor-list",function(obj){
+			console.log(obj)
+		});
+
+ 
 	})
 })

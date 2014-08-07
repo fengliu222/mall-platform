@@ -7,7 +7,18 @@ define(function(require){
 		}
 	}
 	$.get("/index/getList");
-	$("#list").on("loadReady",function(data){
+ 
+	$(document).on("componentsReady",function(data){
 		console.log(">>loadReady ",data)
+
+		seajs.use("charactor-list",function(obj){
+			obj.set("a","123")
+		});	
+
+		seajs.use("charactor-list",function(obj){
+			console.log(obj)
+		});
+
+ 
 	})
 })

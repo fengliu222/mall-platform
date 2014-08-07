@@ -1,13 +1,16 @@
 define(function(require,exports,module){
+	var Widget = require("widget");
 
-	var charactorlist = function(opt){
-		this.name = null;
-		if(opt){
-			this.context = opt.context || $("body");
+	var charactorlist = Widget.extend({
+		attrs:{
+			name : "1"
+		},
+		setup: function(){
+			 
 		}
-	}
-
+	})
 	module.exports = function(opt){
+
 		return new charactorlist(opt);
 	}
 })

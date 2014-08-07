@@ -152,7 +152,7 @@ module.exports = function(grunt) {
 	})
 
 	grunt.registerTask('default',function(target){
-		return grunt.task.run(["freemarker:test","less:build","autoprefixer:build","connect:server","watch"]);
+		return grunt.task.run(["freemarker:test","tmod:template","less:build","autoprefixer:build","connect:server","watch"]);
 	})
 
 	grunt.registerTask('lss',["less:build"])

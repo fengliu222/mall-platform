@@ -8,7 +8,7 @@
  * By moe
  */
 define(function(require,exports,module){
-
+	var widgetTemp = {};
 	/**
 	 * getElementsByAttribute
 	 * @param  {[type]} attr  [description]
@@ -33,16 +33,11 @@ define(function(require,exports,module){
 	  return match;
 	};
     
-    /* 需要加载的组件列表 */
-	window.compoObj = {};
-
-	$(function(){
-		/* 已加载的模块数量 */
+    var dispatch = function(compoArr,callback){
+    	/* 已加载的模块数量 */
 		var hasLoadCount = 0;
-		/* 得到所有组件的包裹元素 */
-		var compoArr = getElementsByAttribute("data-component");
-		var widgetTemp = {};
-		for(var i=0;i<compoArr.length;i++){
+    	compoArr = compoArr || [];
+    	for(var i=0;i<compoArr.length;i++){
 
 			/* 解析组件名，拼模块地址 */
 			var compoName = $(compoArr[i]).data("component");
@@ -76,14 +71,73 @@ define(function(require,exports,module){
 
 					/* 触发指定DOM的loadReady事件*/
 					$(compoArr[index]).trigger("loadReady");
-					console.log(hasLoadCount,compoArr.length)
 					/* 若所有模块都加载完毕，则触发全局的componentsReady事件*/
 					if(hasLoadCount==compoArr.length){
-						$(document).trigger("componentsReady");
+						callback && callback();
+						
 					}
 				})
 			})(i)
 		}
+    }
+
+    jQuery.fn.watch = function( id, fn ) {
+
+	    return this.each(function(){
+	    	
+	        var self = this;
+	         
+	        var oldVal = self[id].length;
+	        $(self).data(
+	            'watch_timer',
+	            setInterval(function(){
+	             
+	                if (self[id].length !== oldVal) {
+	                    fn.call(self, id, oldVal, self[id]);
+	                    oldVal = self[id].length;
+	                }
+	            }, 100)
+	        );
+
+	    });
+
+	    return self;
+	};
+
+	jQuery.fn.unwatch = function( id ) {
+
+	    return this.each(function(){
+	        clearInterval( $(this).data('watch_timer') );
+	    });
+
+	};
+    /* 需要加载的组件列表 */
+	window.compoObj = {};
+
+	$(function(){
+		
+		/* 得到所有组件的包裹元素 */
+		var compoArr = getElementsByAttribute("data-component");
+		dispatch(compoArr,function(){
+			$(document).trigger("componentsReady");
+		})
+		
+
+		$(document).watch("all",function(){
+	 
+			var _newCompoArr = getElementsByAttribute("data-component");
+			var filtArr = _newCompoArr.filter(function(newItem){
+				for(var oldItem in widgetTemp){
+					if($(newItem).data("requireId") == oldItem){
+						return false
+					}
+				}
+
+				return true;
+			})
+
+			dispatch(filtArr);
+		})
 	})
 
 

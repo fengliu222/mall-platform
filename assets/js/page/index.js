@@ -18,6 +18,10 @@ define(function(require){
 			console.log(obj)
 		});
 
- 
+ 		setTimeout(function(){
+ 			$("body").append('<div class="aa" data-component="charactor.list" data-require-id="mm-list"></div>');
+ 		
+
+ 		},2000);
 	})
 })

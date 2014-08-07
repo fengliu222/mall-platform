@@ -9,7 +9,7 @@
  * ** 批量图片压缩
  */
 'use strict';
-
+var path = require("path");
 module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
 
@@ -72,7 +72,18 @@ module.exports = function(grunt) {
 					'./Gruntfile.js',
 					'./assets/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
 				]
-			}
+			},
+	      express: {
+	        files: [
+	          'server.js',
+	          'mockServer/**/*.{js,json,coffee,html}'
+	        ],
+	        tasks: ['express:dev', 'wait'],
+	        options: {
+	          livereload: true,
+	          nospawn: true //Without this option specified express won't be reloaded
+	        }
+	      }
 		},
 
 		autoprefixer: {
@@ -116,6 +127,18 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+
+		express:{
+			options: {
+				port: 9000
+			},
+			dev: {
+		        options: {
+		          script: 'server.js',
+		          debug: true
+		        }
+		    }
+		},
 		connect: {
 			server: {
 				options:{
@@ -133,4 +156,30 @@ module.exports = function(grunt) {
 	})
 
 	grunt.registerTask('lss',["less:build"])
+
+	// Used for delaying livereload until after server has restarted
+	  grunt.registerTask('wait', function () {
+	    grunt.log.ok('Waiting for server reload...');
+
+	    var done = this.async();
+
+	    setTimeout(function () {
+	      grunt.log.writeln('Done waiting!');
+	      done();
+	    }, 500);
+	  });
+
+	  grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
+	    this.async();
+	  });
+
+	grunt.registerTask('serve', function (target) {
+  
+
+    grunt.task.run([
+      'autoprefixer',
+      'express:dev',
+      'watch'
+    ]);
+  });
 }

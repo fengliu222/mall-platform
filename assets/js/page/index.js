@@ -6,7 +6,7 @@ define(function(require){
 			name:"moe"
 		}
 	}
-	console.log(template(goodsData))
+	$.get("/index/getList");
 	$("#list").on("loadReady",function(data){
 		console.log(">>loadReady ",data)
 	})

@@ -67,7 +67,7 @@
 						<a href="###" class="m-menu-active">首页</a>
 						<a href="###">活动专区</a>
 						<a href="###">充值</a>
-						<a href="###"> 提现</a>
+						<a href="###">提现</a>
 					</nav>
 					<#-- /菜单 -->
 

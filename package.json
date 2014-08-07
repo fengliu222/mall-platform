@@ -11,7 +11,11 @@
     "load-grunt-tasks": "^0.6.0",
     "grunt-contrib-connect": "~0.8.0",
     "grunt-tmod": "~1.0.0",
-    "grunt-autoprefixer": "~1.0.0"
+    "grunt-autoprefixer": "~1.0.0",
+    "express": "~4.8.1",
+    "grunt-express": "~1.4.1",
+    "grunt-express-server": "~0.4.17",
+    "body-parser": "~1.6.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -6,7 +6,6 @@ define(function(require){
 			name:"moe"
 		}
 	}
-	$.get("/index/getList");
  
 	$(document).on("componentsReady",function(data){
 		console.log(">>loadReady ",data)

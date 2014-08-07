@@ -18,21 +18,37 @@ app.use(express.static(path.join(__dirname, './')));
 // Routing
 var files = fs.readdirSync("./mockServer");
 files.forEach(function(file) {
-	console.log(file)
     var filePath =  "./mockServer/" + file;
     var stats = fs.statSync(filePath);
 
     if (stats.isDirectory()) {
         console.log('\n读取目录：\n', filePath, "\n");
-        readDirectory(filePath);
+        // readDirectory(filePath);
     } else if (stats.isFile()) {
         fs.readFile(filePath,function(err,data){
         	var mock = JSON.parse(data.toString());
-        	for(var route in mock){
-        		console.log(route);
-        		app.get(route,function(req,res){
-        			res.json(mock[route])
-        		})
+        	for(var api in mock){
+        		var hash = api.split(" ");
+                var route = "/";
+                var method = "GET";
+
+                if(hash.length > 1){
+                    route = hash[1]
+                    method = hash[0].toString().toUpperCase()
+                }else{
+                    route = hash[0]
+                }
+
+                if(method == "POST"){
+                    app.post(route,function(req,res){
+                        res.json(mock[api])
+                    })
+                }else{
+                    app.get(route,function(req,res){
+                        res.json(mock[api])
+                    })
+                }
+        		
         	}
         });
          

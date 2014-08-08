@@ -1,2 +1,2 @@
-/*TMODJS:{"version":2,"md5":"ab140cc86cd5b298ed52d9ebce64a7c8"}*/
+/*TMODJS:{"version":1,"md5":"587865a23fe4d087e310b9c6eaad5ef6"}*/
 define(function(require){return require("./template")("index.newgoods",function(a){"use strict";var b=this,c=(b.$helpers,b.$escape),d=a.item,e="";return e+='<div class="m-newgoods-item"> <div class="m-newgoods-img"> <a href="',e+=c(d.name),e+='"><img src="',e+=c(d.name),e+='" alt="',e+=c(d.name),e+='"></a> </div> <div class="m-newgoods-info"> <a href="',e+=c(d.name),e+='"><h3 class="m-newgoods-name">',e+=c(d.name),e+='</h3></a> <div class="m-newgoods-money"> <p>\u539f\u4ef7\uff1a',e+=c(d.name),e+="\u5143\u5b9d</p> <p>\u552e\u4ef7\uff1a",e+=c(d.name),e+="\u70b9</p> </div> </div> </div> ",new String(e)})});

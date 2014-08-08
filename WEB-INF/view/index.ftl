@@ -7,6 +7,7 @@
 	<meta name="description" content=""/>
 	<meta name="viewport" content="width=device-width"/>
 	<link rel="stylesheet" type="text/css" href="${assets}/css/modules/index.css">
+	<link rel="stylesheet" href="http://at.alicdn.com/t/font_1407493685_4673824.css">
 </head>
 <body>
 	<div class="aa" data-component="charactor.list" data-require-id="charactor-list"></div>
@@ -14,10 +15,10 @@
 	<section class="g-doc">
 		<div class="g-body">
 
-			<#-- 顶部导航条 -->
+			<!-- 顶部导航条 -->
 			<div class="g-center m-top">
 				<span class="m-top-favorites">
-					<i class="f-iconfont m-top-star">&#xf0144</i>
+					<i class="f-iconfont icon-shoucang m-top-star"></i>
 					<span>收藏本页</span>
 				</span>
 				<span class="m-top-welcome">您好！欢迎访问畅易阁</span>
@@ -45,14 +46,14 @@
 
 				</span>
 			</div>
-			<#-- / 顶部导航条 -->
+			<!-- / 顶部导航条 -->
 
-			<#-- 头部 -->
+			<!-- 头部 -->
 			<header class="g-body m-header">
 				<div class="g-center m-header-inner">
 					<div class="m-header-logo"></div>
 
-					<#-- 搜索框 -->
+					<!-- 搜索框 -->
 					<div class="m-header-search">
 						<div class="m-header-gameSelect">选择游戏<i class="f-iconfont">&#xe661</i></div>
 						<div class="m-header-serverSelect">选择区服<i class="f-iconfont">&#xe661</i></div>
@@ -62,34 +63,34 @@
 					<div class="m-header-toSale">
 						<button class="m-header-saleBtn">我要卖</button>
 					</div>
-					<#-- /搜索框 -->
+					<!-- /搜索框 -->
 
-					<#-- 菜单 -->
+					<!-- 菜单 -->
 					<nav class="m-menu">
 						<a href="###" class="m-menu-active">首页</a>
 						<a href="###">活动专区</a>
 						<a href="###">充值</a>
 						<a href="###">提现</a>
 					</nav>
-					<#-- /菜单 -->
+					<!-- /菜单 -->
 
 				</div>	
 			</header>
-			<#-- / 头部 -->
+			<!-- / 头部 -->
 
-			<#-- BANNER -->
+			<!-- BANNER -->
 			<section class="g-body">
 				<section class="g-center">
-					<#-- 图片轮播 -->
+					<!-- 图片轮播 -->
 					<article class="m-banner">
-						<#-- 轮播缩略图 -->
+						<!-- 轮播缩略图 -->
 						<ul class="m-banner-carouselThumb">
 							<li></li>
 							<li></li>
 							<li></li>
 						</ul>
-						<#-- /轮播缩略图 -->
-						<#-- 轮播大图 -->
+						<!-- /轮播缩略图 -->
+						<!-- 轮播大图 -->
 						<ul class="m-banner-carouselContent">
 							<li></li>
 							<li></li>
@@ -102,18 +103,18 @@
 								
 							</span>
 						</div>
-						<#-- /轮播大图 -->
+						<!-- /轮播大图 -->
 					</article>
-					<#-- /图片轮播 -->
+					<!-- /图片轮播 -->
 
-					<#-- 快速充值 -->
+					<!-- 快速充值 -->
 					<aside class="m-fast">
 						<div class="m-fast-tabs">
 							<a href="###" >直充游戏</a>
 							<a href="###" >最新公告</a>
 						</div>
 						<div class="m-fast-content">
-							<#-- 直充游戏 -->
+							<!-- 直充游戏 -->
 							<div class="m-fast-recharge">
 								<form action="#" name="fastRecharge">
 									<div class="m-fast-group">
@@ -138,19 +139,19 @@
 									</div>
 								</form>
 							</div>
-							<#-- /直冲游戏 -->
+							<!-- /直冲游戏 -->
 
-							<#-- 官方公告 -->
+							<!-- 官方公告 -->
 							<div class="m-fast-notice"></div> 
-							<#-- 官方公告 -->
+							<!-- 官方公告 -->
 						</div>
 					</aside>
-					<#-- /快速充值 -->
+					<!-- /快速充值 -->
 				</section>
 			</section>
-			<#-- / BANNER -->
+			<!-- / BANNER -->
 
-			<#-- 游戏交易 -->
+			<!-- 游戏交易 -->
 			<section class="g-center m-gamesale">
 				<header class="m-gamesale-title">
 					<span class="tips-busi"></span>
@@ -166,10 +167,10 @@
 					</ul>
 				</article>
 			</section>
-			<#-- /游戏交易 -->
+			<!-- /游戏交易 -->
 
 			<section class="g-center">
-				<#-- 最新上架 -->
+				<!-- 最新上架 -->
 				<section class="m-newgoods">
 					<header class="m-newgoods-title">
 						<span class="tips-new"></span>
@@ -197,9 +198,9 @@
 					</article>
 				
 				</section>
-				<#-- /最新上架 -->
+				<!-- /最新上架 -->
 				
-				<#-- 常见问题 -->
+				<!-- 常见问题 -->
 				<aside class="m-faq">
 					<header class="m-faq-title">
 						<h2>常见问题</h2>
@@ -218,11 +219,11 @@
 						</div>
 					</article>
 				</aside>
-				<#-- /常见问题 -->
+				<!-- /常见问题 -->
 			</section>
 
 			<section class="g-center">
-				<#-- 活动专区 -->
+				<!-- 活动专区 -->
 				 <section class="m-activity">
 				 	<header class="m-newgoods-title">
 						<span class="tips-active"></span>
@@ -244,9 +245,9 @@
 						</a>
 					</article>
 				 </section>
-				 <#-- /活动专区 -->
+				 <!-- /活动专区 -->
 
-				 <#-- 排行榜 -->
+				 <!-- 排行榜 -->
 				 <aside class="m-rank">
 				 	<header class="m-rank-tabs"> 
 				 		<a href="###" class="m-rank-fans"></a>
@@ -268,10 +269,10 @@
 				 		</tr>
 				 	</table>
 				 </aside>
-				 <#-- /排行榜 -->
+				 <!-- /排行榜 -->
 			</section>
 
-			<#-- 合作游戏 -->
+			<!-- 合作游戏 -->
 			<section class="g-center m-friends">
 				<div class="m-friends-logo"></div>
 				<div class="m-friends-tl">
@@ -285,7 +286,7 @@
 					</div>
 				</div>
 			</section>
-			<#-- /合作游戏 -->
+			<!-- /合作游戏 -->
 		</div>
 	</section>
 

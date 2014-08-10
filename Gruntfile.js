@@ -77,7 +77,7 @@ module.exports = function(grunt) {
 	          'server.js',
 	          'mockServer/**/*.{js,json,coffee,html}'
 	        ],
-	        tasks: ['express:dev', 'wait'],
+	        tasks: ['express:dev','watch'],
 	        options: {
 	          livereload: true,
 	          nospawn: true //Without this option specified express won't be reloaded
@@ -130,23 +130,15 @@ module.exports = function(grunt) {
 		express:{
 			options: {
 				port: 9000
+				
 			},
 			dev: {
 		        options: {
 		          script: 'server.js',
+		          livereload: 35729,
 		          debug: true
 		        }
 		    }
-		},
-		connect: {
-			server: {
-				options:{
-					port: 9000,
-					base:'./',
-					hostname: 'localhost',
-					livereload: 35729
-				}
-			}
 		}
 	})
 

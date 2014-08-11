@@ -139,7 +139,7 @@
 					<article class="m-newgoods-content">
 						<div class="m-newgoods-item">
 							<div class="m-newgoods-img">
-								<a href="###"><img src="###" alt=""></a>
+								<a href="###"><img src="${assets}/img/index/goods1.jpg" alt=""></a>
 							</div>
 							<div class="m-newgoods-info">
 								<a href="###"><h3 class="m-newgoods-name">高级星石淬炼丹药</h3></a>
@@ -148,7 +148,7 @@
 									<p>售价：200点</p>
 								</div>
 							</div>
-
+							<div class="f-clearfix"></div>
 						</div>
 					</article>
 					
@@ -157,19 +157,23 @@
 				
 				<!-- 常见问题 -->
 				<aside class="m-faq">
-					<header class="m-faq-title">
+					<header class="m-faq-title u-widget-title">
+						<div class="u-corner-lt"></div>
+						<div class="u-corner-rb"></div>
 						<h2>常见问题</h2>
-						<a href="###">更多</a>
+						<a href="###">更多>></a>
 					</header>
 					<article class="m-faq-content">
 						<div class="m-faq-group">
 							<div class="m-faq-q">
 								<span>Q:</span>
 								<p>畅易阁与其他交易平台有什么不同？</p>
+								<div class="f-clearfix"></div>
 							</div>
 							<div class="m-faq-a">
 								<span>A:</span>
 								<p>畅易阁是官方虚拟交易平台，交易模式采用与游戏接口直连，全程交易自动化，无须客服人工处理。安全，高效，便捷，让你交易安全又放心。</p>
+								<div class="f-clearfix"></div>
 							</div>
 						</div>
 					</article>
@@ -180,7 +184,7 @@
 
 			<section class="g-center">
 				<!-- 活动专区 -->
-				 <section class="m-activity">
+				<section class="m-activity">
 				 	<header class="m-newgoods-title">
 						<div class="tips-active"></div>
 						<h2>活动专区</h2>
@@ -188,16 +192,16 @@
 					
 				 	<article class="m-activity-content">
 						<a href="###">
-							<img src="###" alt="">
+							<img src="${assets}/img/index/active1.jpg" alt="">
 						</a>
 						<a href="###">
-							<img src="###" alt="">
+							<img src="${assets}/img/index/active2.jpg" alt="">
 						</a>
 						<a href="###">
-							<img src="###" alt="">
+							<img src="${assets}/img/index/active3.jpg" alt="">
 						</a>
 						<a href="###">
-							<img src="###" alt="">
+							<img src="${assets}/img/index/active4.jpg" alt="">
 						</a>
 					</article>
 				 </section>
@@ -205,42 +209,118 @@
 
 				 <!-- 排行榜 -->
 				 <aside class="m-rank">
-				 	<header class="m-rank-tabs"> 
-				 		<a href="###" class="m-rank-fans"></a>
-				 		<a href="###" class="m-rank-history"></a>
+				 	<header class="m-rank-tabs u-tabs"> 
+				 		<div class="u-corner-lt"></div>
+				 		<div class="u-corner-rb"></div>
+				 		<a href="###" class="m-rank-fans u-tabs-active">人气排行榜</a>
+				 		<a href="###" class="m-rank-history">历史排行榜</a>
 				 	</header>
 				 	<div class="m-rank-title">
-				 		<span>游戏名称</span>
-				 		<span>商品描述</span>
-				 		<span>价格</span>
-				 		<span>人气指数</span>
+				 		<span class="m-rank-gamename">游戏名称</span>
+				 		<span class="m-rank-username">商品描述</span>
+				 		<span class="m-rank-money">价格</span>
+				 		<span class="m-rank-fans">人气指数</span>
 				 	</div>
-				 	<table>
+				 	<table class="u-ranktable">
 				 		<tr>
 				 			<td><i class="u-ranktips">1</i></td>
-				 			<td><div>天龙八部</div></td>
-				 			<td><div>妖王孙悟空</div></td>
+				 			<td><div class="m-rank-gamename">天龙八部</div></td>
+				 			<td><div class="m-rank-username">妖王孙悟空</div></td>
 				 			<td><div class="m-rank-money">13000</div></td>
-				 			<td><div>2341627</div></td>
+				 			<td><div class="m-rank-fans">2341627</div></td>
+				 		</tr><tr>
+				 			<td><i class="u-ranktips">2</i></td>
+				 			<td><div class="m-rank-gamename">天龙八部</div></td>
+				 			<td><div class="m-rank-username">妖王孙悟空</div></td>
+				 			<td><div class="m-rank-money">13000</div></td>
+				 			<td><div class="m-rank-fans">2341627</div></td>
+				 		</tr><tr>
+				 			<td><i class="u-ranktips">3</i></td>
+				 			<td><div class="m-rank-gamename">天龙八部</div></td>
+				 			<td><div class="m-rank-username">妖王孙悟空</div></td>
+				 			<td><div class="m-rank-money">13000</div></td>
+				 			<td><div class="m-rank-fans">2341627</div></td>
 				 		</tr>
 				 	</table>
 				 </aside>
+				 <div class="f-clearfix"></div>
 				 <!-- /排行榜 -->
 			</section>
 
 			<!-- 合作游戏 -->
 			<section class="g-center m-friends">
 				<div class="m-friends-logo"></div>
-				<div class="m-friends-tl">
-					<div>
-						<img src="###" alt="">
+				<div class="m-friends-tl m-friends-item">
+					<div class="z-tl-grey">
+						<div></div>
 						<p>天龙八部</p>
 					</div>
-					<div class="m-friends-active">
-						<img src="###" alt="">
+					<div class="z-tl-light">
+						<div></div>
 						<p>天龙八部</p>
 					</div>
 				</div>
+				<div class="m-friends-dj m-friends-item">
+					<div class="z-dj-grey">
+						<div></div>
+						<p>刀剑英雄</p>
+					</div>
+					<div class="z-dj-light">
+						<div></div>
+						<p>刀剑英雄</p>
+					</div>
+				</div>
+				<div class="m-friends-sh m-friends-item">
+					<div class="z-sh-grey">
+						<div></div>
+						<p>水浒Q传</p>
+					</div>
+					<div class="z-sh-light">
+						<div></div>
+						<p>水浒Q传</p>
+					</div>
+				</div>
+				<div class="m-friends-dp m-friends-item">
+					<div class="z-dp-grey">
+						<div></div>
+						<p>斗破苍穹</p>
+					</div>
+					<div class="z-dp-light">
+						<div></div>
+						<p>斗破苍穹</p>
+					</div>
+				</div>
+				<div class="m-friends-ld m-friends-item">
+					<div class="z-ld-grey">
+						<div></div>
+						<p>鹿鼎记</p>
+					</div>
+					<div class="z-ld-light">
+						<div></div>
+						<p>鹿鼎记</p>
+					</div>
+				</div>
+				<div class="m-friends-hx m-friends-item">
+					<div class="z-hx-grey">
+						<div></div>
+						<p>幻想神域</p>
+					</div>
+					<div class="z-hx-light">
+						<div></div>
+						<p>幻想神域</p>
+					</div>
+				</div>
+				<div class="m-friends-qs m-friends-item">
+					<div class="z-qs-grey">
+						<div></div>
+						<p>秦时明月</p>
+					</div>
+					<div class="z-qs-light">
+						<div></div>
+						<p>秦时明月</p>
+					</div>
+				</div>
+				<div class="f-clearfix"></div>
 			</section>
 			<!-- /合作游戏 -->
 		</section>

@@ -114,6 +114,13 @@ module.exports = function(grunt) {
 		        destCSS: './assets/less/sprites/index-sprite.less',
 		        imgPath:'@{imgPath}/index/index-game-sprite.jpg',
 		        cssFormat: 'less'
+		    },
+		    gamelogo:{
+		    	src: ['./assets/img/index/gamelogo_*.png','./assets/img/index/gamelogo_color_*.png'],
+		        destImg: './assets/img/index/gamelogo.png',
+		        destCSS: './assets/less/sprites/gamelogo.less',
+		        imgPath:'@{imgPath}/index/gamelogo.png',
+		        cssFormat: 'less'
 		    }
 		},
 		tmod:{

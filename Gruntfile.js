@@ -53,7 +53,7 @@ module.exports = function(grunt) {
 				tasks: ['freemarker:test']
 			},
 			template:{
-				files: ['./WEB-INF/view/tpl/**/*.html'],
+				files: ['./tpl/**/*.html'],
 				tasks: ['tmod'],
 				options: {
                     spawn: false
@@ -125,10 +125,10 @@ module.exports = function(grunt) {
 		},
 		tmod:{
 			template:{
-				src:'./WEB-INF/view/tpl/**/*.html',
+				src:'./tpl/**/*.html',
 				dest:'./assets/js/template',
 				options:{
-					base:'./WEB-INF/view/tpl',
+					base:'./tpl',
 					type: "cmd"
 				}
 			}

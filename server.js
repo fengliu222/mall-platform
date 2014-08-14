@@ -14,11 +14,11 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 // Application Config
 
 var app = express();
-app.use(express.static(path.join(__dirname, './')));
+app.use(express.static(path.join(__dirname, './.tmp')));
 // Routing
-var files = fs.readdirSync("./mockServer");
+var files = fs.readdirSync("./mock/ajax");
 files.forEach(function(file) {
-    var filePath =  "./mockServer/" + file;
+    var filePath =  "./mock/ajax/" + file;
     var stats = fs.statSync(filePath);
 
     if (stats.isDirectory()) {
@@ -27,27 +27,36 @@ files.forEach(function(file) {
     } else if (stats.isFile()) {
         fs.readFile(filePath,function(err,data){
         	var mock = JSON.parse(data.toString());
-        	for(var api in mock){
-        		var hash = api.split(" ");
-                var route = "/";
-                var method = "GET";
 
-                if(hash.length > 1){
-                    route = hash[1]
-                    method = hash[0].toString().toUpperCase()
-                }else{
-                    route = hash[0]
-                }
+        	for(var _api in mock){
 
-                if(method == "POST"){
-                    app.post(route,function(req,res){
-                        res.json(mock[api])
-                    })
-                }else{
-                    app.get(route,function(req,res){
-                        res.json(mock[api])
-                    })
-                }
+                (function(api){
+
+            		var hash = api.split(" ");
+                    var route = "/";
+                    var method = "GET";
+
+                    if(hash.length > 1){
+                        route = hash[1]
+                        method = hash[0].toString().toUpperCase()
+                    }else{
+                        route = hash[0]
+                        app.get(route,function(req,res){
+                            res.redirect(mock[api].url);
+                        })
+                        return;
+                    }
+
+                    if(method == "POST"){
+                        app.post(route,function(req,res){
+                            res.json(mock[api])
+                        })
+                    }else{
+                        app.get(route,function(req,res){
+                            res.json(mock[api])
+                        })
+                    }
+                })(_api)
         		
         	}
         });

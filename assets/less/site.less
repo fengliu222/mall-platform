@@ -12,12 +12,11 @@
 
 .g-center{
 	width: 1200px;
-	.center-block(); 
+	.center-block();
 }
 
 .g-sidebar{
-	float: left;
-	margin-left: 24px;
+	float: right;
 }
 
 .g-main{
@@ -95,14 +94,86 @@
 	.sprite(@tip-rb);
 }
 /* 默认列表表格样式 */
+.font-red {
+	color: #fa3232;
+	font-weight: bold;
+}
+.mr20 {
+	margin-left: 20px;
+}
+.u-rank-list {
+	background: #fff;
+}
 .u-ranktable{
 	width: 100%;
 	margin-left: 7px;
 
 	tr{
 		height: 35px;
-		border-top:1px dashed #f0f0f0;
+		border-bottom:1px dashed #f0f0f0;
 	}
+}
+
+.u-rank-item {
+	margin: 0 10px;
+	padding: 15px 0;
+	border-bottom: 1px dashed #f0f0f0;
+}
+
+.u-rank-img {
+	width: 40px;
+	height: 40px;
+	float: left;
+}
+
+.u-rank-info {
+	margin-left: 50px;
+	h3 {
+		font-weight: normal;
+		font-family: 'Microsoft Yahei';
+		color: #4c4c4c;
+	}
+	p {
+		line-height: 35px;
+		color: #808080;
+	}
+}
+
+.m-rank-col-3 {
+	background: #fff;
+	margin-bottom: 30px;
+	.m-rank-title{
+		height: 34px;
+		padding-left: 27px;
+		line-height: 34px;
+		color:#999;
+		font-weight: bold;
+		border-bottom: 1px solid #f0f0f0;
+	}
+	.m-rank-span {
+		text-align: center;
+		.inline-block();
+		.text-ellipsis();
+	}
+	.m-rank-gamename{
+		width: 60px;
+	}
+	.m-rank-username{
+		width: 100px;
+	}
+	.m-rank-money{
+		width: 74px;
+	}
+	.m-rank-sects {
+		width: 74px;
+	}
+	.m-rank-fans{
+		width: 90px;
+	}
+}
+
+.m-rank-advance {
+	padding: 10px;
 }
 .u-ranktips{
 	.inline-block();
@@ -174,6 +245,7 @@
 }
 
 .m-top-buttons{
+	position: relative;
 	float: right;
 	height: 35px;
 	line-height: 35px;
@@ -196,6 +268,33 @@
 	}
 	a:hover{
 		color: @color-font-hover;
+	}
+}
+.m-top-userbar{
+	ul{
+		position: absolute;
+		width: 122px;
+		top: 35px;
+		left: 0;
+		background: white;
+		border-left: 1px solid #ccc;
+		border-right: 1px solid #ccc;
+		border-bottom: 1px solid #ccc;
+		.box-shadow(0 2px 5px #ddd);
+		li{	
+
+			line-height: 32px;
+			height: 32px;
+			text-indent: 1em;
+			&:hover{
+				background: #f5f5f5;
+			}
+		}
+	}
+	&:hover{
+		ul{
+			display: block;
+		}
 	}
 }
 
@@ -225,49 +324,72 @@
 }
 
 .m-header-search{
-	width: 577px;
-	height: 36px;
+	width: 580px;
+	height: 37px;
 	border: 2px solid @color-red-default;
 	float: left;
 	font-size: 0;
 	
 	div,input,button{
-		height: 36px;
-		line-height: 36px;
+		height: 37px;
+		line-height: 37px;
 		.inline-block();
 	}
 }
 
 .m-header-gameSelect,.m-header-serverSelect{
+	width: 127px;
+	text-align: center;
 	background: @color-bg-default;
 	font-size: 12px;
 	cursor: pointer;
-	padding: 0 35px;
 }
-
+.m-header-gameSelect{
+	border-right:1px solid #ebebeb;
+}
 .m-header-gamelist{
 	display: none;
 }
 
 .m-header-goodsInput{
-	width: 240px;
+	width: 245px;
 	border:0;
 }
 .m-header-searchBtn{
-	width: 77px;
-	height: 36px;
+	width: 80px;
+	height: 37px;
 	font-size: 14px;
 	font-weight: bold;
 	background: @color-red-default;
 	border:0;
 	color:white;
 }
+.u-gameselect-content{
+	width: 126px;
+	text-align: center;
+	line-height: 37px;
+	background: white;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	.box-shadow(0 2px 5px #ddd);
+	li{
+		line-height: 32px;
+		height: 32px;
+		text-align: left;
+		cursor: pointer;
+		text-indent: 1em;
+		&:hover{
+			background: #f5f5f5;
+		}
+	}
+}
 .m-header-toSale{
 	float: right;
 
 	button{
 		width: 77px;
-		height: 40px;
+		height: 41px;
 		font-size: 14px;
 		font-weight: bold;
 		background: @color-red-default;
@@ -302,3 +424,56 @@
 .m-menu-active{
 	background: @color-red-hover;
 }
+
+/* 购买数量 */ 
+.u-input-number {
+	float: left;
+	margin-left: 8px;
+	font-size: 0;
+}
+.u-decrease, .u-increase {
+	.inline-block();
+	vertical-align: middle;
+	width: 22px;
+	height: 22px;
+	text-indent: -9999px;
+	text-decoration: none;
+}
+
+.u-decrease{
+	background: url("@{imgPath}/common/inputnum_sprite.png") 0 0 no-repeat;
+}
+
+.u-increase{
+	background: url("@{imgPath}/common/inputnum_sprite.png") 0 -23px no-repeat;
+}
+
+.u-decrease.f-disable, .u-increase.f-disable {
+	cursor: default;
+	cursor: not-allowed;
+}
+
+.u-number .u-number-input {
+	width: 46px;
+	height: 20px;
+	font-size: 14px;
+	text-align: center;
+	outline: none;
+	border: 1px solid #CACACA;
+	border-left: none;
+	border-right: none;
+	vertical-align: middle;
+	color: #333;
+}
+
+.u-inputnum-tip {
+	float: left;
+	height: 22px;
+	margin-left: 8px;
+	font-size: 12px;
+	line-height: 22px;
+	color: #808080;
+}
+// #J_LeftNum.error {
+// 	color: #F01212;
+// }

@@ -8,7 +8,6 @@
 	<meta name="viewport" content="width=device-width"/>
 	<link rel="stylesheet" type="text/css" href="${assets}/css/site.css">
 	<link rel="stylesheet" type="text/css" href="${assets}/css/modules/index.css">
-	<link rel="stylesheet" href="http://at.alicdn.com/t/font_1407493685_4673824.css">
 	<!--[if lt IE 9]>
 		<script src="${assets}/js/vendor/html5.js"></script>
 	<![endif]-->
@@ -21,37 +20,43 @@
 		<#-- /引入头部 -->
 
 		<!-- BANNER --> 
-		<section class="g-body m-banner">
+		<section class="g-body m-banner"  id="m-banner">
 			<section class="g-center"> 
 				<!-- 图片轮播 -->
 				<article class="m-slide">
 					<!-- 轮播缩略图 -->
-					<ul class="m-slide-carouselThumb">
-						<li><img src="${assets}/img/index/slideThumb1.jpg" alt="" width="180" height="100"></li>
-						<li><img src="${assets}/img/index/slideThumb2.jpg" alt="" width="180" height="100"></li>
-						<li><img src="${assets}/img/index/slideThumb3.jpg" alt="" width="180" height="100"></li>
-					</ul> 
-					<!-- /轮播缩略图 -->
-					<!-- 轮播大图 -->
-					<ul class="m-slide-carouselContent">
-						<li><a href="###"><img src="${assets}/img/index/slideBig.jpg" alt="" width="720" height="300"></a></li>
-						<#-- <li><img src="${assets}/img/index/slideBig.jpg" alt="" width="720" height="300"></li>
-						<li><img src="${assets}/img/index/slideBig.jpg" alt="" width="720" height="300"></li> -->
-					</ul>
-					<div class="m-slide-notice">
-						<i class="f-iconfont">&#xe603;</i>
-						最新成交
-						<span>
-							
-						</span> 
+					<div id="index-slide">
+						<ul data-switchable-role="nav" class="m-slide-carouselThumb">
+							<li><img src="${assets}/img/index/slideThumb1.jpg" alt="" width="180" height="100" data-adaptive-background="1"></li>
+							<li><img src="${assets}/img/index/slideThumb2.jpg" alt="" width="180" height="100" data-adaptive-background="2"></li>
+							<li><img src="${assets}/img/index/slideThumb3.jpg" alt="" width="180" height="100" data-adaptive-background="3"></li>
+						</ul> 
+						<!-- /轮播缩略图 -->
+						<!-- 轮播大图 -->
+						<ul data-switchable-role="content" class="m-slide-carouselContent">
+							<li><a href="###"><img src="${assets}/img/index/slideBig.jpg" alt="" width="720" height="300"></a></li>
+							<li><img src="${assets}/img/index/slideBig1.jpg" alt="" width="720" height="300"></li>
+							<li><img src="${assets}/img/index/slideBig2.jpg" alt="" width="720" height="300"></li>
+						</ul>
+						<div class="m-slide-border"></div>
 					</div>
+					<div class="m-slide-notice"  id="index-slideNotice">
+						<div><i class="f-iconfont">&#xe603;</i>
+						最新成交</div>
+						<ul data-switchable-role="content" >
+						 	<li>2014-07-23 15:34 【术士 女 5转149级】 初凉 15000</li>
+						 	<li>2014-07-21 15:34 【术士1 女 5转149级】 初凉 15000</li>
+						 	<li>2014-07-21 15:34 【术士2 女 5转149级】 初凉 15000</li>
+						 </ul> 
+					</div>
+					
 					<!-- /轮播大图 -->
 
 				</article>
 				<!-- /图片轮播 -->
 
 				<!-- 快速充值 -->
-				<aside class="m-fast">
+				<aside class="m-fast" id="index-fast">
 					<div class="m-fast-tabs u-tabs">
 						<div class="u-corner-lt"></div>
 						<a href="###" class="u-tabs-active">直充游戏</a>
@@ -61,25 +66,29 @@
 					<div class="m-fast-content">
 						<!-- 直充游戏 -->
 						<div class="m-fast-recharge f-dn">
-							<form action="#" name="fastRecharge">
-								<div class="m-fast-group">
-									<label for="username">畅游通行证：</label>
-									<input type="text" name="username" placeholder="手机/邮箱/个性账号">
-								</div>
+							<form action="###" name="fastRecharge">
+								<div class="m-fast-error" data-role="error"></div>
 								<div class="m-fast-group">
 									<label for="gameid">游戏名称：</label>
-									<div class="m-fast-gameselect">
-										<span class="m-fast-gamename">天龙八部</span>
+									<div class="m-fast-gameselect" id="gameRecharge">
+
+										<span data-role="trigger-content" class="m-fast-gamename">天龙八部</span>
 										<i class="f-iconfont">&#xe601;</i>
 									</div>
 								</div>
 								<div class="m-fast-group">
 									<label for="rachargeCount">充值金额：</label>
-									<input type="text" require name="money">
+									<input type="text" require name="money" data-role="money">
+								</div>
+								<div class="m-fast-group">
+									<label for="code">验证码：</label>
+									<input type="text" class="m-fast-code" name="code" placeholder="验证码" maxlength="5" data-role="code">
+									<img src="http://auth.changyou.com/servlet/ImageCode" class="m-fast-codedisplay" alt="验证码" height="28" width="55">
+									<a href="###" class="m-fast-changecode">看不清？</a>
 								</div>
 								<div class="m-fast-group">
 									<label for="gameMoney">游戏点数：</label>
-									<span class="m-fast-gameMoney">100游戏点</span>
+									<span class="m-fast-gameMoney" data-role="gamemoney">0游戏点</span>
 									<span class="m-fast-moneyComment">1元=20游戏点</span>
 								</div>
 								<div class="m-fast-group">
@@ -90,7 +99,7 @@
 						<!-- /直冲游戏 -->
 
 						<!-- 官方公告 -->
-						<div class="m-fast-notice">
+						<div class="m-fast-notice f-dn">
 							<ul>
 								<li><a href="###"><span class="m-fast-noticetitle">畅易阁网络维护公告</span><span class="m-fast-noticedate">06-13</span></a></li><li><a href="###"><span class="m-fast-noticetitle">畅易阁网络维护公告</span><span class="m-fast-noticedate">06-13</span></a></li><li><a href="###"><span class="m-fast-noticetitle">畅易阁网络维护公告</span><span class="m-fast-noticedate">06-13</span></a></li><li><a href="###"><span class="m-fast-noticetitle">畅易阁网络维护公告</span><span class="m-fast-noticedate">06-13</span></a></li><li><a href="###"><span class="m-fast-noticetitle">畅易阁网络维护公告</span><span class="m-fast-noticedate">06-13</span></a></li><li><a href="###"><span class="m-fast-noticetitle">畅易阁网络维护公告</span><span class="m-fast-noticedate">06-13</span></a></li>
 							</ul>
@@ -132,25 +141,14 @@
 						<h2>最新上架</h2>
 						<span class="m-newgoods-gamelist">
 							<a href="###">天龙八部</a>
-							<a href="###">天龙八部</a>
-							<a href="###">天龙八部</a>
+							 
 						</span>
 					</header>
-					<article class="m-newgoods-content">
-						<div class="m-newgoods-item">
-							<div class="m-newgoods-img">
-								<a href="###"><img src="${assets}/img/index/goods1.jpg" alt=""></a>
-							</div>
-							<div class="m-newgoods-info">
-								<a href="###"><h3 class="m-newgoods-name">高级星石淬炼丹药</h3></a>
-								<div class="m-newgoods-money">
-									<p>原价：1100元宝</p>
-									<p>售价：200点</p>
-								</div>
-							</div>
-							<div class="f-clearfix"></div>
-						</div>
-					</article>
+					<div class="m-newgoods-contentwrap">
+						<article class="m-newgoods-content">
+							
+						</article>
+					</div>
 					
 				</section>
 				<!-- /最新上架 -->
@@ -221,27 +219,7 @@
 				 		<span class="m-rank-money">价格</span>
 				 		<span class="m-rank-fans">人气指数</span>
 				 	</div>
-				 	<table class="u-ranktable">
-				 		<tr>
-				 			<td><i class="u-ranktips">1</i></td>
-				 			<td><div class="m-rank-gamename">天龙八部</div></td>
-				 			<td><div class="m-rank-username">妖王孙悟空</div></td>
-				 			<td><div class="m-rank-money">13000</div></td>
-				 			<td><div class="m-rank-fans">2341627</div></td>
-				 		</tr><tr>
-				 			<td><i class="u-ranktips">2</i></td>
-				 			<td><div class="m-rank-gamename">天龙八部</div></td>
-				 			<td><div class="m-rank-username">妖王孙悟空</div></td>
-				 			<td><div class="m-rank-money">13000</div></td>
-				 			<td><div class="m-rank-fans">2341627</div></td>
-				 		</tr><tr>
-				 			<td><i class="u-ranktips">3</i></td>
-				 			<td><div class="m-rank-gamename">天龙八部</div></td>
-				 			<td><div class="m-rank-username">妖王孙悟空</div></td>
-				 			<td><div class="m-rank-money">13000</div></td>
-				 			<td><div class="m-rank-fans">2341627</div></td>
-				 		</tr>
-				 	</table>
+				 	<div class="m-rank-listwrap"></div>
 				 </aside>
 				 <div class="f-clearfix"></div>
 				 <!-- /排行榜 -->
@@ -251,71 +229,71 @@
 			<section class="g-center m-friends">
 				<div class="m-friends-logo"></div>
 				<div class="m-friends-tl m-friends-item">
-					<div class="z-tl-grey">
+					<div class="z-tl-grey m-friends-grey">
 						<div></div>
 						<p>天龙八部</p>
 					</div>
-					<div class="z-tl-light">
+					<div class="z-tl-light m-friends-color">
 						<div></div>
 						<p>天龙八部</p>
 					</div>
 				</div>
 				<div class="m-friends-dj m-friends-item">
-					<div class="z-dj-grey">
+					<div class="z-dj-grey m-friends-grey">
 						<div></div>
 						<p>刀剑英雄</p>
 					</div>
-					<div class="z-dj-light">
+					<div class="z-dj-light m-friends-color">
 						<div></div>
 						<p>刀剑英雄</p>
 					</div>
 				</div>
 				<div class="m-friends-sh m-friends-item">
-					<div class="z-sh-grey">
+					<div class="z-sh-grey m-friends-grey">
 						<div></div>
 						<p>水浒Q传</p>
 					</div>
-					<div class="z-sh-light">
+					<div class="z-sh-light m-friends-color">
 						<div></div>
 						<p>水浒Q传</p>
 					</div>
 				</div>
 				<div class="m-friends-dp m-friends-item">
-					<div class="z-dp-grey">
+					<div class="z-dp-grey m-friends-grey">
 						<div></div>
 						<p>斗破苍穹</p>
 					</div>
-					<div class="z-dp-light">
+					<div class="z-dp-light m-friends-color">
 						<div></div>
 						<p>斗破苍穹</p>
 					</div>
 				</div>
 				<div class="m-friends-ld m-friends-item">
-					<div class="z-ld-grey">
+					<div class="z-ld-grey m-friends-grey">
 						<div></div>
 						<p>鹿鼎记</p>
 					</div>
-					<div class="z-ld-light">
+					<div class="z-ld-light m-friends-color">
 						<div></div>
 						<p>鹿鼎记</p>
 					</div>
 				</div>
 				<div class="m-friends-hx m-friends-item">
-					<div class="z-hx-grey">
+					<div class="z-hx-grey m-friends-grey">
 						<div></div>
 						<p>幻想神域</p>
 					</div>
-					<div class="z-hx-light">
+					<div class="z-hx-light m-friends-color">
 						<div></div>
 						<p>幻想神域</p>
 					</div>
 				</div>
 				<div class="m-friends-qs m-friends-item">
-					<div class="z-qs-grey">
+					<div class="z-qs-grey m-friends-grey">
 						<div></div>
 						<p>秦时明月</p>
 					</div>
-					<div class="z-qs-light">
+					<div class="z-qs-light m-friends-color">
 						<div></div>
 						<p>秦时明月</p>
 					</div>
@@ -323,15 +301,63 @@
 				<div class="f-clearfix"></div>
 			</section>
 			<!-- /合作游戏 -->
+
+			<section class="g-center m-help">
+				<article class="m-help-item">
+					<div class="m-help-center">
+						<div class="m-help-icon z-help-saleflow"></div>
+						<div class="m-help-content">
+							<h3 class="m-help-title">出售流程</h3>
+							<a href="###">购买流程</a>
+							<a href="###">钱包充值</a>
+							<a href="###">游戏领取</a>
+						</div>
+					</div>
+				</article>
+				<article class="m-help-item">
+					<div class="m-help-center">
+						<div class="m-help-icon z-help-buyflow"></div>
+						<div class="m-help-content">
+							<h3 class="m-help-title">购买流程</h3>
+							<a href="###">出售流程</a>
+							<a href="###">游戏寄售</a>
+							<a href="###">提取现金</a>
+						</div>
+					</div>
+				</article>
+				<article class="m-help-item">
+					<div class="m-help-center">
+						<div class="m-help-icon z-help-safe"></div>
+						<div class="m-help-content">
+							<h3 class="m-help-title">安全保障</h3>
+							<a href="###">被盗举报</a>
+							<a href="###">意见反馈</a>
+							<a href="###">帮助中心</a>
+						</div>
+					</div>
+				</article>
+				<article class="m-help-item">
+					<div class="m-help-center">
+						<div class="m-help-icon z-help-faq"></div>
+						<div class="m-help-content">
+							<h3 class="m-help-title">常见问题</h3>
+							<a href="###">时间规则</a>
+							<a href="###">收费规则</a>
+							<a href="###">热点问题</a>
+						</div>
+					</div>
+				</article>
+				<div class="f-clearfix"></div>
+			</section>
 		</section>
 	</section>
 
 	<script id="seajsnode" src="${assets}/js/vendor/seajs/seajs/2.2.1/sea.js"></script>
 	<script src="${assets}/js/vendor/seajs/seajs-combo/1.0.1/seajs-combo.js"></script>
-	<script type="text/javascript" src="../assets/js/config.js"></script>
+	<script type="text/javascript" src="../assets/js/config.js?=1"></script>
 	<script src="http://localhost:35729/livereload.js"></script>
 	<script>
-		seajs.use("../assets/js/page/index.js")
+		seajs.use("${assets}/js/page/index/index.js")
 	</script>
 </body>
 </html>

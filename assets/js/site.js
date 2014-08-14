@@ -7,15 +7,20 @@
  */
 
 define(function(require,exports,module){
+	window.gameList = [
+		{value:'天龙', text:"天龙八部"},
+		{value:'鹿鼎记', text:"鹿鼎记"},
+		{value:'新水浒Q传', text:"新水浒Q传"}
+	]
 
-	/* 全站设置的全局变量 */
-	window.siteConfig={}
-
-	/* 组件加载器 */
-	var componentsLoader = require("./modules/componentsLoader");
-	var template = require("template");
-
-	$(document).on("componentsReady",function(){
+	/* 搜索框 —— 选择游戏 组件初始化*/
+	seajs.use(['arale/select/0.9.9/select'],function(Select){
+		var gameSearch = new Select({
+			trigger:'#gameSelect',
+			classPrefix: 'u-gameselect',
+			model:gameList
+		});
 	})
+ 
 
 })

@@ -17,16 +17,28 @@ h2{
 .tips-new{vertical-align: top;.inline-block();background:url("@{imgPath}/index/allbgs.jpeg") no-repeat 0px -779px;height:29px;width:31px;}
 .tips-active{vertical-align: top;.inline-block();background:url("@{imgPath}/index/allbgs.jpeg") no-repeat 0px -808px;height:29px;width:31px;}
 
-
+/* BANNER */
 .m-banner{
 	height: 300px;
 	background: #d6e4ef;
+	transition:background .4s ease;
 }
+
+/* 幻灯 */
 .m-slide{
 	width: 900px;
 	height: 300px;
+	overflow: hidden;
 	position: relative;
 
+}
+.m-slide-border{
+	position: absolute;
+	top:0;
+	left:0;
+	width: 176px;
+	height: 96px;
+	border:2px solid @color-red-default;
 }
 .m-slide-notice{
 	width: 720px;
@@ -38,6 +50,18 @@ h2{
 	position: absolute;
 	right: 0;
 	bottom: 0;
+	overflow: hidden;
+	div,ul{
+		float: left;
+	}
+
+	ul{
+		color:#333;
+	}
+
+	.ui-switchable-nav{
+		display: none;
+	}
 }
 .m-slide,.m-slide-carouselContent,.m-slide-carouselThumb,.m-fast{
 	float: left;
@@ -52,9 +76,9 @@ h2{
 		height: 100px;
 		cursor: pointer;
 	}
-	
 }
 
+/* 快速充值 */
 .m-fast{
 	width: 300px;
 	height: 300px;
@@ -70,7 +94,7 @@ h2{
 
 }
 .m-fast-group{
-	margin-top: 22px;
+	margin-bottom: 22px;
 	label{
 		width: 88px;
 		.inline-block();
@@ -83,11 +107,19 @@ h2{
 		border: 1px solid #b8aa9a;
 	}
 }
+.m-fast-error{
+	height: 20px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	color:#ff3333;
+	text-align: center;
 
+}
 .m-fast-gameselect{
 	width: 176px;
 	height: 26px;
 	line-height: 26px;
+
 	border: 1px solid #b8aa9a;
 	cursor: pointer;
 	.inline-block();
@@ -100,8 +132,28 @@ h2{
 		.inline-block();
 	}
 }
+.u-gamerecharge{
+	width: 176px;
+	background: white;
+	border-bottom: 1px solid #b8aa9a;
+	border-left: 1px solid #b8aa9a;
+	border-right: 1px solid #b8aa9a;
+
+	li{
+		height: 26px;
+		line-height: 26px;
+		text-indent: .5em;
+		cursor: pointer;
+
+		&:hover{
+			background: #ebebeb;
+		}
+	}
+}
 .m-fast-gamename{
 	width: 150px;
+	color: #b8b8b8;
+	text-indent: .5em;
 	.inline-block();
 }
 
@@ -109,9 +161,13 @@ h2{
 	width: 100px;
 	color:@color-light-default;
 	.inline-block();
+
 }
 .m-fast-moneyComment{
 	color:#999;
+}
+.m-fast-code{
+	width: 70px !important;
 }
 
 .m-fast-purchase{
@@ -163,7 +219,15 @@ h2{
 	line-height: 35px;
 	color:#999;
 }
+.m-fast-codedisplay{
+	cursor: pointer;
+	vertical-align: top;
+}
+.m-fast-changecode{
+	color:#999;
+}
 
+/* 主内容 */
 .m-main{
 	overflow: hidden;
 	background: #f5f5f5;
@@ -176,7 +240,7 @@ h2{
 		.inline-block();
 	}
 }
-
+/* 游戏交易模块 */
 .m-gamesale{
 	margin-top: 35px;
 	ul{
@@ -196,10 +260,8 @@ h2{
 .m-gamesale-content{
 	margin-top: 10px;
 }
-.tips-busi{
-	
-}
 
+/* 最新上架 */
 .m-newgoods{
 	width: 880px;
 	margin-top: 35px;
@@ -258,6 +320,7 @@ h2{
 	line-height: 1.8;
 }
 
+/* 常见问题 */
 .m-faq{
 	width: 300px;
 	height: 400px;
@@ -296,6 +359,7 @@ h2{
 	color:#999;
 }
 
+/* 活动专区*/
 .m-activity,.m-rank{
 	margin-top: 35px;
 }
@@ -314,6 +378,8 @@ h2{
 		margin: 0 0 15px 15px; 
 	}
 }
+
+/* 人气排行 历史排行 */
 .m-rank{
 	width: 300px;
 	background: white;
@@ -349,6 +415,7 @@ h2{
 	.inline-block();
 }
 
+/* 合作游戏 */
 .m-friends{
 	height: 98px;
 	border: 1px solid #ebebeb;
@@ -371,7 +438,17 @@ h2{
 	cursor: pointer;
 	text-align: center;
 	border-left:1px solid #ebebeb;
+	margin:0;
+	transition: all .2s ease;
+
+	&:hover{
+		margin:-112px 0 0 0;
+		_margin:-98px 0 0 0;
+		*margin:-98px 0 0 0;
+ 
+	}
 }
+
 
 .z-tl-light {
 	height: 98px;
@@ -487,4 +564,66 @@ h2{
 	}
 }
 
- 
+/* 帮助中心 */
+
+.m-help{
+	height: 166px;
+	margin-top: 35px;
+	background: white;
+	border-top:1px solid #ebebeb;
+	border-right:1px solid #ebebeb;
+	font-family: "微软雅黑";
+}
+
+.m-help-item{
+	width: 298px;
+	height: 166px;
+	float: left;
+	border-left:1px solid #ebebeb;
+}
+
+.m-help-center{
+	width: 116px;
+	margin-top: 39px;
+	.center-block();
+}
+
+.m-help-icon{
+	width: 40px;
+	height: 40px;
+	float: left;
+	background: url("@{imgPath}/index/helpicon.jpg") no-repeat;
+}
+.m-help-title{
+	font-size: 14px;
+	margin-bottom: 19px;
+	font-weight: bold;
+}
+.m-help-content{
+	float: right;
+
+	a{
+		width: 100%;
+		display: block;
+		margin-bottom: 15px;
+		color:#999;
+
+		&:hover{
+			color:@color-font-default;
+			text-decoration: underline;
+		}
+	}
+}
+
+.z-help-saleflow{
+	background-position: -40px 0;
+}
+.z-help-buyflow{
+	background-position: -80px 0;
+}
+.z-help-safe{
+	background-position: -120px 0;
+}
+.z-help-faq{
+	background-position: 0 0;
+}

@@ -1,0 +1,35 @@
+{
+	"GET /api/index/ranklist":{
+		"code":200,
+		"data":{
+ 			"list":[{
+	 			"gamename":"天龙",
+				"username":"啊啊",
+				"price":"12",
+				"fans":"1"
+	 		},{
+	 			"gamename":"天龙",
+				"username":"啊啊",
+				"price":"12",
+				"fans":"1"
+	 		},{
+	 			"gamename":"天龙",
+				"username":"啊啊",
+				"price":"12",
+				"fans":"1"
+	 		},{
+	 			"gamename":"天龙",
+				"username":"啊啊",
+				"price":"12",
+				"fans":"1"
+	 		}]
+ 		},
+ 		"msg":"ok"
+	},
+	"GET /api/getCode":{
+		"code":200,
+		"data":{
+			"src":"http://auth.changyou.com/servlet/ImageCode"
+		}
+	}
+}

@@ -25,9 +25,18 @@ module.exports = function(grunt) {
 					expand: true,
 					cwd: './assets/less',
 					src: ['**/*.less','!var.less','!func.less','!reset.less','!core.less','!sprites/*.less'],
-					dest: './assets/css',
+					dest: './build/assets/css',
 					ext: '.css',
 					cleancss:true
+				}]
+			},
+			dev: {
+				files: [{
+					expand: true,
+					cwd: './assets/less',
+					src: ['**/*.less','!var.less','!func.less','!reset.less','!core.less','!sprites/*.less'],
+					dest: './.tmp/assets/css',
+					ext: '.css'
 				}]
 			}
 		},
@@ -36,46 +45,53 @@ module.exports = function(grunt) {
 		freemarker: {
 			options: {
 				views: "WEB-INF/view",
-				out: "staticPage"
+				out: "./.tmp"
 			},
 			test: {
-				src: "mocks/*.js"
+				src: "mock/ftl/*.js"
 			}
 		},
 
 		watch: {
 			styles: {
 				files: ['./assets/less/{,*/}*.less'],
-				tasks: ['less:build','autoprefixer:build']
+				tasks: ['less:dev','autoprefixer:dev']
 			},
 			html: {
 				files: ['./WEB-INF/view/{,*/}*.ftl'],
 				tasks: ['freemarker:test']
 			},
 			template:{
-				files: ['./tpl/**/*.html'],
-				tasks: ['tmod'],
+				files: ['./WEB-INF/view/tpl/**/*.tpl'],
+				tasks: ['tmod:dev'],
 				options: {
                     spawn: false
                 }
+			},
+			scripts:{
+				files: ["./assets/js/**/*.js"],
+				tasks: ['copy:scripts']
+			},
+			images:{
+				files: ["./assets/img/**/*.{png,jpg,jpeg,gif,webp,svg}"],
+				tasks: ['copy:dev']
 			},
 			livereload: {
 				options: {
 					livereload: 35729 // this port must be same with the connect livereload port
 				},
 				files: [
-					'./staticPage/*.html',
-					'./assets/css/{,*/}*.css',
-					'./assets/js/{,*/}*.js',
-					'./mocks/(,*/}*.js',
+					'./.tmp/*.html',
+					'./.tmp/assets/**/*',
+					'./mock/**/*.js',
 					'./Gruntfile.js',
-					'./assets/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+					'./assets/img/**/*.{png,jpg,jpeg,gif,webp,svg}'
 				]
 			},
 	      express: {
 	        files: [
 	          'server.js',
-	          'mockServer/**/*.{js,json,coffee,html}'
+	          'mock/ajax/*.{js,json,coffee,html}'
 	        ],
 	        tasks: ['express:dev','watch'],
 	        options: {
@@ -91,6 +107,12 @@ module.exports = function(grunt) {
 		    cwd: './assets/css/',
 		    src: [ '**/*.css' ],
 		    dest: './assets/css/'
+		  },
+		  dev: {
+		    expand: true,
+		    cwd: './assets/css/',
+		    src: [ '**/*.css' ],
+		    dest: './.tmp/assets/css/'
 		  }
 		},
 		sprite:{
@@ -124,11 +146,19 @@ module.exports = function(grunt) {
 		    }
 		},
 		tmod:{
-			template:{
-				src:'./tpl/**/*.html',
-				dest:'./assets/js/template',
+			dev:{
+				src:'./WEB-INF/view/tpl/**/*.tpl',
+				dest:'./.tmp/assets/js/template',
 				options:{
-					base:'./tpl',
+					base:'./WEB-INF/view/tpl',
+					type: "cmd"
+				}
+			},
+			build:{
+				src:'./WEB-INF/view/tpl/**/*.tpl',
+				dest:'./build/assets/js/template',
+				options:{
+					base:'./WEB-INF/view/tpl',
 					type: "cmd"
 				}
 			}
@@ -146,11 +176,44 @@ module.exports = function(grunt) {
 		          debug: true
 		        }
 		    }
+		},
+
+		copy:{
+			dev:{
+				files:[{
+					expand:true,
+					src:['./assets/**/*','!./assets/less/**/*'],
+					dest:'./.tmp'
+				}]
+			},
+			build:{
+				files:[{
+					expand:true,
+					src:['./assets','./WEB-INF'],
+					dest:'./build'
+				}]
+			},
+			scripts:{
+				files:[{
+					expand:true,
+					src:['./assets/js/**/*','!./assets/js/vendor/**/*'],
+					dest:'./.tmp'
+				}]
+			}
+		},
+
+		clean:{
+			dev:{
+				src:['./.tmp']
+			},
+			build:{
+				src:['./build']
+			}
 		}
 	})
 
 	grunt.registerTask('default',function(target){
-		return grunt.task.run(["freemarker:test","tmod:template","less:build","autoprefixer:build","connect:server","watch"]);
+		return grunt.task.run(["serve"]);
 	})
 
 	grunt.registerTask('lss',["less:build"])
@@ -173,10 +236,12 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('serve', function (target) {
 	    grunt.task.run([
+	      "clean:dev",
+	      "copy:dev",
 	      "freemarker:test",
-	      "tmod:template",
-	      "less:build",
-	      'autoprefixer',
+	      "tmod:dev",
+	      "less:dev",
+	      'autoprefixer:dev',
 	      'express:dev',
 	      'watch'
 	    ]);

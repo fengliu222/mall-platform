@@ -16,6 +16,11 @@
 			<span class="m-top-userbar m-top-slidebar">
 				<a href="###">我的买卖</a>
 				<i class="f-iconfont">&#xe602;</i>
+				<ul class="f-dn">
+					<li><a href="###">我购买的商品</a></li>
+					<li><a href="###">我出售的商品</a></li>
+					<li><a href="###">我关注的商品</a></li>
+				</ul>
 			</span>
 			<span class="m-top-cyt">
 				<a href="###">畅易通</a>
@@ -43,12 +48,7 @@
 		<!-- 搜索框 -->
 		<div class="m-header-tools">
 			<div class="m-header-search">
-				<div class="m-header-gameSelect">选择游戏<i class="f-iconfont">&#xe602;</i>
-				<ul class="m-header-gamelist">
-					<li>天龙八部</li>
-					<li>水浒Q传</li>
-					<li>鹿鼎记</li>
-				</ul>
+				<div class="m-header-gameSelect" id="gameSelect"><span data-role="trigger-content">选择游戏</span> <i class="f-iconfont">&#xe602;</i>
 				</div>
 				<div class="m-header-serverSelect">选择区服<i class="f-iconfont">&#xe602;</i></div>
 				<input type="text" class="m-header-goodsInput">

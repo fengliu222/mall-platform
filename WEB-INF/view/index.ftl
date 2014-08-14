@@ -78,7 +78,7 @@
 								</div>
 								<div class="m-fast-group">
 									<label for="rachargeCount">充值金额：</label>
-									<input type="text" require name="money" data-role="money">
+									<input type="text" require name="money" data-role="money" class="m-fast-money">
 								</div>
 								<div class="m-fast-group">
 									<label for="code">验证码：</label>
@@ -139,15 +139,12 @@
 					<header class="m-newgoods-title">
 						<div class="tips-new"></div>
 						<h2>最新上架</h2>
-						<span class="m-newgoods-gamelist">
-							<a href="###">天龙八部</a>
+						<ul class="m-newgoods-gamelist" data-switchable-role="nav">
 							 
-						</span>
+						</ul>
 					</header>
-					<div class="m-newgoods-contentwrap">
-						<article class="m-newgoods-content">
-							
-						</article>
+					<div class="m-newgoods-contentwrap" data-switchable-role="content">
+						 
 					</div>
 					
 				</section>
@@ -219,7 +216,10 @@
 				 		<span class="m-rank-money">价格</span>
 				 		<span class="m-rank-fans">人气指数</span>
 				 	</div>
-				 	<div class="m-rank-listwrap"></div>
+				 	<div class="m-rank-listwrap">
+				 		<div class="m-rank-content"></div>
+				 		<div class="m-rank-content f-dn"></div>
+				 	</div>
 				 </aside>
 				 <div class="f-clearfix"></div>
 				 <!-- /排行榜 -->

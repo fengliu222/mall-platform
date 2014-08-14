@@ -1,5 +1,6 @@
 define(function(require,exports,module){
-	var rankListTemp =require("template/index.ranklist");
+	var rankListTemp = require("template/index.ranklist");
+	var goodsListTemp = require("template/index.newgoods");
 
 	/* 首页Banner slide */
 	seajs.use(['arale/switchable/1.0.2/slide','$'], function(slide, $){
@@ -38,8 +39,16 @@ define(function(require,exports,module){
  			panels:'#index-fast .m-fast-content>div',
  			activeTriggerClass:"u-tabs-active" 
  		})  
-  
- 		// 人气排行、历史排行
+
+ 		var rankTab = new tabs({
+ 			element:".m-rank",
+ 			triggers:'.m-rank-tabs a',
+ 			panels:'.m-rank-listwrap .m-rank-content',
+ 			triggerType :"click",
+ 			activeIndex:0,
+ 			activeTriggerClass:"u-tabs-active" 
+ 		});
+
  	})
  	
  	/* 快速充值的游戏选择 */
@@ -51,15 +60,68 @@ define(function(require,exports,module){
 		});
  	})
 
- 
-
- 	/* 合作游戏的鼠标滑动效果 */
-
-
 	module.exports = {
-		rankRender:function(cont,res){
-			var rankListHTML= rankListTemp(res.data);
-			$(".m-rank-listwrap").empty().html(rankListHTML);
+	 	rankTabInit:function(onchange){
+		 	seajs.use(['arale/switchable/1.0.2/tabs','$'], function(tabs, $){
+		 		var rankTab = new tabs({
+		 			element:".m-rank",
+		 			triggers:'.m-rank-tabs a',
+		 			panels:'.m-rank-listwrap .m-rank-content',
+		 			triggerType :"click",
+		 			activeIndex:0,
+		 			activeTriggerClass:"u-tabs-active" 
+		 		});
+
+		 		rankTab.on("change:activeIndex",function(to,from){
+		 			onchange(to);
+		 		})
+		 	})
+	 	},
+		rankRender:function(cont,res,index){
+			 
+			var rankListHTML= rankListTemp(res.data.rank[0]);
+			$(".m-rank-content").eq(index).empty().html(rankListHTML);
+			 
+		},
+		goodsListRender:function(cont,res,index){
+			var goodsListHTML = goodsListTemp(res);
+
+		},
+		listSlideInit: function(cont){
+			seajs.use(['arale/switchable/1.0.2/slide','$'], function(slide, $){
+				var goodsSlide = new slide({
+					element:".m-newgoods",
+					effect:"scrollx",
+					activeIndex:0,
+					triggerType :"click",
+					duration: 300,
+					triggers:".m-newgoods-gamelist a",
+					easing :"easeBoth"
+				}).render();
+
+				cont(null,goodsSlide);
+			})
+		},
+
+		updateListContent: function(cont,res){
+			if(!res.list) return;
+			for(var i in res.list){
+				var gamename = res.list[i].gamename;
+				var gameid = res.list[i].gameid;
+
+				$(".m-newgoods-gamelist").append("<a href='###' data-gameid='"+gameid+"'>"+gamename+"</a>");
+				var contentHTML = goodsListTemp(res.list[i]);
+
+				$(".m-newgoods-contentwrap").append('<article class="m-newgoods-content">'+contentHTML+'</article>')
+
+			}
+
+			cont();
+		},
+
+		updateListByIndex: function(cont,res,index){
+			var contentHTML = goodsListTemp(res);
+			$(".m-newgoods-content").eq(index).empty().html(contentHTML)
 		}
 	}
 })

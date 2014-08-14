@@ -35,7 +35,6 @@ files.forEach(function(file) {
             		var hash = api.split(" ");
                     var route = "/";
                     var method = "GET";
-
                     if(hash.length > 1){
                         route = hash[1]
                         method = hash[0].toString().toUpperCase()

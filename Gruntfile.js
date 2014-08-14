@@ -104,13 +104,13 @@ module.exports = function(grunt) {
 		autoprefixer: {
 		  build: {
 		    expand: true,
-		    cwd: './assets/css/',
+		    cwd: './build/assets/css/',
 		    src: [ '**/*.css' ],
-		    dest: './assets/css/'
+		    dest: './build/assets/css/'
 		  },
 		  dev: {
 		    expand: true,
-		    cwd: './assets/css/',
+		    cwd: './.tmp/assets/css/',
 		    src: [ '**/*.css' ],
 		    dest: './.tmp/assets/css/'
 		  }

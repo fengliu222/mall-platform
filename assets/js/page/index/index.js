@@ -12,12 +12,72 @@ define(function(require){
 	require("Thenjs");
 
  	$(function(){
- 		/*  初始化首页排行榜 */
- 		Thenjs(function(cont){
- 			model.getRank(cont,0);
- 		}).then(view.rankRender);
+
+ 		/**
+ 		 * 初始化首页排行榜
+ 		 * @param  {[type]} cont [description]
+ 		 * @return {[type]}      [description]
+ 		 */
+ 		var curRankTab = 0;
+
+ 		/* 初始化第一页排行榜 */
+ 		updateRankTab(0);
+
+ 		/* 绑定切换tab时，刷新排行榜 */
+ 		view.rankTabInit(function(to){
+			curRankTab = to;
+			updateRankTab(to);
+		})
+
+ 		/* 排行榜刷新函数 */
+		function updateRankTab(index){
+			Thenjs(function(cont){
+	 			model.getRank(cont,index);
+	 		}).then(view.rankRender)
+		}
+		
+ 		/**
+ 		 * 初始化首页最新上架
+ 		 * @param  {[type]} cont [description]
+ 		 * @return {[type]}      [description]
+ 		 */
+ 		Thenjs(updateAllGoodsList)
+
+ 		 /* 初始化SLIDE */
+ 		.then(view.listSlideInit)
+ 		.then(function(cont,slider){
+ 			/* 绑定切换页面时刷新数据 */
+ 		  	slider.on("change:activeIndex",function(to,from){
+ 		  		updateOneGoodsList(to);
+ 		  	})
+ 		})
  		
- 		 
+ 		/* 更新所有最新上架物品 */
+ 		function updateAllGoodsList(cont){
+ 			Thenjs(function(c){
+ 
+	 			/* 加载初始化数据，默认加载所有游戏的最新上架物品 */
+	 			model.getNewgoods(c);
+
+	 			/* 插入DOM中*/            
+	 		}).then(view.updateListContent).all(cont)
+	 		 
+ 		}
+
+ 		/* 更新单个游戏的最新上架物品 */
+ 		function updateOneGoodsList(index){
+ 			Thenjs(function(cont){
+	  			var gameid = $(".m-newgoods-gamelist").eq(index).data("gameid");
+	  			model.getNewgoodsById(cont,gameid,index);
+	  		}).then(view.updateListByIndex)
+ 		}
+ 		
+ 		/* 三分钟自动刷新全部最新上架物品列表 */
+ 		setInterval(function(){
+ 			updateAllGoodsList();
+ 			updateRankTab(curRankTab);
+ 		},60*1000*3)
+
  		/**
  		 * 充值游戏组件
  		 * @return {[type]}         [description]

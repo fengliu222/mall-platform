@@ -1,7 +1,7 @@
-{{each list as item index}}
+{{each goods as item index}}
 <div class="m-newgoods-item">
 	<div class="m-newgoods-img">
-		<a href="{{item.src}}"><img src="{{item.img}}" alt=""></a>
+		<a href="{{item.src}}"><img src="{{item.img}}" alt="" width="70" height="70"></a>
 	</div>
 	<div class="m-newgoods-info">
 		<a href="{{item.src}}"><h3 class="m-newgoods-name">{{item.name}}</h3></a>

@@ -4,6 +4,6 @@ module.exports = {
 	data: {
 		name: 'moe',
 		assets: './assets',
-		common: '/common/'
+		common: '/common/' 
 	}
 }

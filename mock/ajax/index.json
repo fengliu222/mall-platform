@@ -2,27 +2,88 @@
 	"GET /api/index/ranklist":{
 		"code":200,
 		"data":{
- 			"list":[{
-	 			"gamename":"天龙",
-				"username":"啊啊",
-				"price":"12",
-				"fans":"1"
-	 		},{
-	 			"gamename":"天龙",
-				"username":"啊啊",
-				"price":"12",
-				"fans":"1"
-	 		},{
-	 			"gamename":"天龙",
-				"username":"啊啊",
-				"price":"12",
-				"fans":"1"
-	 		},{
-	 			"gamename":"天龙",
-				"username":"啊啊",
-				"price":"12",
-				"fans":"1"
-	 		}]
+ 			"rank":[
+ 				{
+ 					"type":"0",
+ 					"list":[{
+			 			"gamename":"天龙",
+						"username":"啊啊",
+						"price":"12",
+						"fans":"1"
+			 		},{
+			 			"gamename":"天龙",
+						"username":"啊啊",
+						"price":"12",
+						"fans":"1"
+			 		},{
+			 			"gamename":"天龙",
+						"username":"啊啊",
+						"price":"12",
+						"fans":"1"
+			 		},{
+			 			"gamename":"天龙",
+						"username":"啊啊",
+						"price":"12",
+						"fans":"1"
+			 		}]
+ 				},
+ 				{
+ 					"type":"1",
+ 					"list":[{
+			 			"gamename":"天龙1",
+						"username":"啊啊",
+						"price":"12",
+						"fans":"1"
+			 		},{
+			 			"gamename":"天龙2",
+						"username":"啊啊",
+						"price":"12",
+						"fans":"1"
+			 		},{
+			 			"gamename":"天龙3",
+						"username":"啊啊",
+						"price":"12",
+						"fans":"1"
+			 		},{
+			 			"gamename":"天龙4",
+						"username":"啊啊",
+						"price":"12",
+						"fans":"1"
+			 		}]
+ 				}
+ 			]
+ 		},
+ 		"msg":"ok"
+	},
+	"GET /api/index/ranklistbytype":{
+		"code":200,
+		"data":{
+ 			"rank":[
+ 				{
+ 					"type":"0",
+ 					"list":[{
+			 			"gamename":"天龙",
+						"username":"啊啊",
+						"price":"12",
+						"fans":"1"
+			 		},{
+			 			"gamename":"天龙",
+						"username":"啊啊",
+						"price":"12",
+						"fans":"1"
+			 		},{
+			 			"gamename":"天龙",
+						"username":"啊啊",
+						"price":"12",
+						"fans":"1"
+			 		},{
+			 			"gamename":"天龙",
+						"username":"啊啊",
+						"price":"12",
+						"fans":"1"
+			 		}]
+ 				}
+ 			]
  		},
  		"msg":"ok"
 	},
@@ -31,5 +92,58 @@
 		"data":{
 			"src":"http://auth.changyou.com/servlet/ImageCode"
 		}
+	},
+	"GET /api/getNewgoodsById":{
+		"code":200,
+		"data":{
+			"gamename": "天龙八部",
+			"gameid":"1",
+			"goods":[{
+				"img":"http://image.cyg.changyou.com/ldj/debris/UI_Icon_partner_renascence.gif",
+				"src":"###",
+				"name":"破除结界果实×2",
+				"gamePrice":"12000",
+				"sitePrice":"12000"
+				}]
+		}
+	},
+	"GET /api/getNewgoods":{
+		"code":200,
+		"data":{
+			"list":[
+				{
+					"gamename": "天龙八部",
+					"gameid":"1",
+					"goods":[{
+						"img":"http://image.cyg.changyou.com/ldj/debris/UI_Icon_partner_renascence.gif",
+						"src":"###",
+						"name":"破除结界果实×1",
+						"gamePrice":"12000",
+						"sitePrice":"12000"
+						}]
+				},{
+					"gamename": "水浒Q传",
+					"gameid":"2",
+					"goods":[{
+						"img":"http://image.cyg.changyou.com/ldj/debris/UI_Icon_partner_renascence.gif",
+						"src":"###",
+						"name":"破除结界果实×1",
+						"gamePrice":"12000",
+						"sitePrice":"12000"
+						}]
+				},{
+					"gamename": "幻想神域",
+					"gameid":"3",
+					"goods":[{
+						"img":"http://image.cyg.changyou.com/ldj/debris/UI_Icon_partner_renascence.gif",
+						"src":"###",
+						"name":"破除结界果实×1",
+						"gamePrice":"12000",
+						"sitePrice":"12000"
+						}]
+				}
+			]
+		}
 	}
+
 }

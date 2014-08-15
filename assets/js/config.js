@@ -15,7 +15,8 @@ seajs.config({
 		'confirmBox': 'arale/dialog/1.3.0/confirmbox',
 		'event':'arale/events/1.1.0/events-debug',
 		'widget':'arale/widget/1.1.1/widget',
-		'validator':'arale/validator/0.9.7/validator'
+		'validator':'arale/validator/0.9.7/validator',
+		'style':'vendor/seajs/seajs-style/1.0.2/seajs-style'
 	},
 
 	map: [
@@ -25,7 +26,8 @@ seajs.config({
 	preload: [
 		Function.prototype.bind ? '' : 'es5-safe',
     	this.JSON ? '' : 'json',
-    	'$'
+    	'$',
+    	'style'
 	],
 
 	comboExcludes: /.*/,

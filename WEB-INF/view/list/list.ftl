@@ -24,55 +24,29 @@
 					<div class="m-choice">
 						<nav>
 							首页
-							<dl>
-								<dt>天龙八部</dt>
-								<dd>新水浒Q传</dd>
-								<dd>新水浒Q传</dd>
-								<dd>新水浒Q传</dd>
-							</dl>
-							<dl>
-								<dt>全部区服</dt>
-								<dd>新水浒Q传</dd>
-							</dl>
-							<dl>
-								<dt>官方特卖</dt>
-								<dd>新水浒Q传</dd>
-								<dd>新水浒Q传</dd>
-								<dd>新水浒Q传</dd>
-							</dl>
+							<i class="f-iconfont">&#xe609;</i>
+							<a href="#" id="games" class="ui-select-trigger">选择游戏</a>
+							<i class="f-iconfont">&#xe609;</i>
+							<a href="javascript:void(0);" class="ui-select-trigger js-server-btn">
+								<span class="select-text">全部公测区服</span>
+							</a>
+							<i class="f-iconfont">&#xe609;</i>
+							<a href="#" class="ui-select-trigger">选择区服</a>
+							<i class="f-iconfont">&#xe609;</i>
+							<a href="#" class="ui-select-trigger">选择区服</a>
 						</nav>
+						<#list filter as fItem>
 						<p class="select-wrap">
-							<label class="title">商品分类：</label>
+							<label class="title">${fItem.type}：</label>
 							<div class="content">
-								<a href="javascript:void(0)">角色</a>
-								<a href="javascript:void(0)">道具</a>
-								<a href="javascript:void(0)">角色</a>
-								<a href="javascript:void(0)">道具</a>
-								<a href="javascript:void(0)">角色</a>
-								<a href="javascript:void(0)">道具</a>
-								<a href="javascript:void(0)">角色</a>
-								<a href="javascript:void(0)">道具</a>
-								<a href="javascript:void(0)">角色</a>
-								<a href="javascript:void(0)">道具</a>
-								<a href="javascript:void(0)">角色</a>
-								<a href="javascript:void(0)">道具</a>
-								<a href="javascript:void(0)">角色</a>
-								<a href="javascript:void(0)">道具</a>
-								<a href="javascript:void(0)">角色</a>
-								<a href="javascript:void(0)">道具</a>
-								<a href="javascript:void(0)">角色</a>
-								<a href="javascript:void(0)">道具</a>
+							<#list fItem.sub as sItem>
+								<a href="javascript:void(0)">${sItem.name}</a>
+							</#list>
 							</div>
 						</p>
-						<p class="select-wrap">
-							<label class="title">商品分类：</label>
-							<div class="content">
-								<a href="javascript:void(0)">代售商品</a>
-								<a href="javascript:void(0)">公示商品</a>
-							</div>
-						</p>
+						</#list>
 					</div>
-					<div class="u-btn-more">更多选项（装备评分，修炼评分，心法评分…）<i class="f-iconfont">&#xe602;</i></div>
+					<div class="u-btn-more js-btn-more">更多选项（装备评分，修炼评分，心法评分…）<i class="f-iconfont">&#xe602;</i></div>
 					<!-- 筛选项 -->
 
 					<div class="m-sort">
@@ -99,6 +73,7 @@
 									<span class="price"><i class="f-iconfont">&#xe604;</i>36</span>
 									<a class="n-btn-buy" href="javascript:void(0)">购 买</a>
 								</div>
+								<div class="sperate-line"></div>
 							</li>
 
 							<li class="item">
@@ -114,6 +89,7 @@
 									<span class="price"><i class="f-iconfont">&#xe604;</i>36000</span>
 									<a class="n-btn-buy" href="javascript:void(0)">购 买</a>
 								</div>
+								<div class="sperate-line"></div>
 							</li>
 
 							<li class="item">
@@ -129,8 +105,27 @@
 									<span class="price"><i class="f-iconfont">&#xe604;</i>12330006</span>
 									<a class="n-btn-buy n-btn-disable" href="javascript:void(0)">购 买</a>
 								</div>
+								<div class="sperate-line"></div>
 							</li>
 						</ul>
+					</div>
+
+					<div class="ui-pagination">
+						<a title="上一页" href="javascript:void(0)" class="pre lock"><span class="span">上一页</span></a>
+						<a href="javascript:void(0)" class="num active"><span data-curr-num="1" class="span curr">1</span></a>
+						<a href="javascript:void(0)" class="num"><span class="span">2</span></a>
+						<a href="javascript:void(0)" class="num"><span class="span">3</span></a>
+						<a href="javascript:void(0)" class="num"><span class="span">4</span></a>
+						<a href="javascript:void(0)" class="num"><span class="span">5</span></a>
+						<a href="javascript:void(0)" class="num"><span class="span">6</span></a>
+						<a href="javascript:void(0)" class="num"><span class="span">7</span></a>
+						<a href="javascript:void(0)" class="num"><span class="span">8</span></a>
+						<a href="javascript:void(0)" class="num"><span class="span">9</span></a>
+						<span class="pointer">...</span>
+						<a href="javascript:void(0)" class="num"><span class="span">12</span></a>
+						<a title="下一页" href="javascript:void(0)" class="after">
+						<span class="span">下一页</span>
+						</a>
 					</div>
 				</div>
 				<!-- 主栏 -->
@@ -205,12 +200,46 @@
 
 	</section>
 
+
+
+<div id="server-box" class="m-server-wrap server-list">
+	<i class="f-iconfont icon-up">&#xe60a;</i>
+	<a class="f-iconfont server-list-close" href="javascript:void(0);" title="关闭">&#xe60f;</a>
+	<div class="hd">
+		<p class="fn-right search-info" id="select-step">
+			<span class="active">1.选择大区</span>
+			<i class="f-iconfont">&#xe609;</i>
+			<span>2.选择服务器</span>
+			<i class="f-iconfont">&#xe609;</i>
+			<span>3.筛选完成</span>
+		</p>
+		<div class="select-search">
+			<a id="searchServer" class="ui-btn-search fn-right">搜索</a>
+			<input class="select-search-input fn-right" placeholder="全区快搜" type="text">
+			<ul class="select-search-tip"></ul>
+		</div>
+		<span id="select-guide" class="select-search-area">请选择游戏区：</span>
+		<span id="allServerSearch" style="display: none;" class="search-item">
+		<span class="item-text">全区快搜</span>
+			<a href="javascript:;" class="ui-btn-close f-iconfont">&#xe60f;</a>
+		</span>
+		<a href="javascript:;" class="all-below"></a>
+	</div>
+	<div id="server-area-list" class="bd">
+		加载区服列表中！~
+	</div>
+</div>
+
+
 	<script id="seajsnode" src="${assets}/js/vendor/seajs/seajs/2.2.1/sea.js"></script>
 	<script src="${assets}/js/vendor/seajs/seajs-combo/1.0.1/seajs-combo.js"></script>
 	<script type="text/javascript" src="../assets/js/config.js"></script>
 	<script src="http://localhost:35729/livereload.js"></script>
 	<script>
-		seajs.use("../assets/js/page/list.js")
+		var SERVER_INFO = <#if server?exists && server?string?length!=0>${server}<#else>[]</#if>;
+	</script>
+	<script>
+		seajs.use("${assets}/js/page/list.js")
 	</script>
 </body>
 </html>

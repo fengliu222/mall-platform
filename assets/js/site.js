@@ -8,9 +8,9 @@
 
 define(function(require,exports,module){
 	window.gameList = [
-		{value:'天龙', text:"天龙八部"},
-		{value:'鹿鼎记', text:"鹿鼎记"},
-		{value:'新水浒Q传', text:"新水浒Q传"}
+		{value:'1', text:"天龙八部"},
+		{value:'2', text:"鹿鼎记"},
+		{value:'3', text:"新水浒Q传"}
 	]
 
 	/* 搜索框 —— 选择游戏 组件初始化*/

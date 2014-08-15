@@ -1,0 +1,347 @@
+@import "../core.less";
+@vesion: '?v=20140812';
+
+.m-main{
+	overflow: hidden;
+	background: #F5F5F5;
+}
+.m-link {
+	color: #1468A8;
+	&:hover {
+		color: #1468A8;
+	}
+}
+.f-hide {
+	display: none;
+}
+.f-font-st {
+	font-family: "\5B8B\4F53";
+}
+.f-normal-font {
+	font-size: 12px;
+}
+.f-left-line {
+	.fn-left-line();
+}
+
+
+
+
+.m-crumb {
+	height: 40px;
+	line-height: 40px;
+	padding-left: 7px;
+	font-family: "Microsoft Yahei";
+	color: #666;
+	font-size: 14px;
+	li {
+		.fn-left();
+		.m-arrow {
+			margin-left: 3px;
+			margin-right: 3px;
+			font-family: "\5B8B\4F53";
+		}
+		.f-current {
+			font-weight: bold;
+		}
+		a {
+			color: #666; 
+		}
+
+	}
+}
+.m-body {
+	.clearfix();
+}
+.g-side {
+	width: 240px;
+	background-color: #EBEBEB;
+	.fn-left();
+}
+.g-main {
+	width: 960px;
+	background-color: #FFF;
+	.fn-left();
+}
+
+//左侧样式
+.m-main-title {
+	width: 240px;
+	height: 50px;
+	background: url("@{imgPath}/mycenter/bg-menu-list.png@{vesion}") 0 0 no-repeat;
+	h1 {
+		.hide-text();
+	}
+}
+.m-mc-menu {
+	margin: 30px 0 36px 55px;
+	font-size: 14px;
+	color: #666;
+	font-family: "Microsoft Yahei";
+	.m-menu-item {
+		display: block;
+		color: #666;
+		&.f-active, &:hover {
+			font-weight: bold;
+			color: #C20001;
+		}
+		&.f-active {
+			background: url("@{imgPath}/mycenter/bg-menu-list.png@{vesion}") right -110px no-repeat;
+		}
+	}
+}
+// menu icon
+.m-mc-menu-icon {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin-right: 8px;
+	vertical-align: middle;
+	background: #FFF url("@{imgPath}/mycenter/bg-menu-list.png@{vesion}") 0 -85px no-repeat;
+}
+.m-mc-ico-bussiness {
+	background-position: 0 -85px;
+}
+.m-mc-ico-money {
+	background-position: 0 -110px;
+}
+.m-mc-ico-account {
+	background-position: 0 -135px;
+}
+
+dl {
+	margin-bottom: 23px;
+	dt {
+		margin-bottom: 5px;
+	}
+	dd {
+		padding: 8px 0 7px 42px;
+	}
+}
+
+// 右侧样式
+.fn-left-line() {
+	border-left: 1px solid #F5F5F5;
+}
+
+// 进度条
+.m-process {
+	display: inline-block;
+	vertical-align: middle;
+	width: 150px;
+	height: 13px;
+	margin-top: -2px;
+	overflow: hidden;
+	background-color: #E5E5E5;
+	margin-right: 5px;
+	i {
+		display: inline-block;
+		height: 13px;
+		width: 60px;
+		background: #AC0000 url("@{imgPath}/mycenter/bg-mycenter.png@{vesion}") 0 0 repeat-x;
+	}
+}
+
+.m-info-center {
+	.clearfix();
+	border-bottom: 1px solid #F5F5F5;
+}
+.m-user-info {
+	margin-left: 24px;
+	font-size: 14px;
+	font-family: "Microsoft Yahei";
+}
+.m-actionc {
+	.fn-right();
+	.clearfix();
+	.m-action-item {
+		font-family: "Microsoft Yahei";
+		text-align: center;
+		width: 109px;
+		height: 79px;
+		.fn-left();
+		.fn-left-line();
+	}
+}
+.m-accout-money, .m-freeze-money {
+	position: relative;
+	font-style: normal;
+	font-size: 22px;
+	padding-left: 10px;
+	.f-iconfont {
+		position: absolute;
+		top: -14px;
+		left: -2px;
+		font-weight: 100;
+	}
+}
+.m-accout-money {
+	color: #C20003;
+}
+.m-freeze-money {
+	color: #666;
+}
+
+
+// 资金账户信息
+.m-accountc {
+	background-color: #F5F5F5;
+	width: 750px;
+	margin-left: 24px;
+	padding-top: 23px;
+	padding-bottom: 17px;
+	position: relative;
+	.clearfix();
+	.m-account-arr {
+		color: #F5F5F5;
+		position: absolute;
+		top: -7px;
+		left: 237px;
+	}
+	.m-account-info-item {
+		.fn-left();
+		width: 149px;
+		color: #666;
+		text-align: center;
+		&.f-left-line {
+			border-left: 1px solid #F0F0F0;
+		}
+		p {
+			margin-top: 11px;
+		}
+		a {
+			line-height: 24px;
+		}
+	}
+}
+// 资金账户信息ico
+.m-account-ico {
+	display: block;
+	.center-block();
+	width: 60px;
+	height: 60px;
+}
+.m-ico-zfmm {
+	background: #FA5555 url("@{imgPath}/mycenter/bg-account-ico.png@{vesion}") 0 0 no-repeat;
+}
+.m-ico-smrz {
+	background: #FFA033 url("@{imgPath}/mycenter/bg-account-ico.png@{vesion}") -80px 0 no-repeat;
+}
+.m-ico-aqsj {
+	background: #88D95F url("@{imgPath}/mycenter/bg-account-ico.png@{vesion}") -160px 0 no-repeat;
+}
+.m-ico-aqyx {
+	background: #5FD9B0 url("@{imgPath}/mycenter/bg-account-ico.png@{vesion}") -240px 0 no-repeat;
+}
+.m-ico-mbwt {
+	background: #47AFFF url("@{imgPath}/mycenter/bg-account-ico.png@{vesion}") -320px 0 no-repeat;
+}
+
+/**
+ * @TODO 暂时用 后期删除
+ */
+.m-newgoods-item{
+	width: 205px;
+	margin-left: 12px;
+	float: left;
+}
+.m-newgoods-img{
+	width: 70px;
+	height: 70px;
+	margin-right: 10px;
+	float: left;
+}
+.m-newgoods-info{
+	width: 125px;
+	float: left;
+}
+.m-newgoods-name{
+	height: 30px;
+	.text-ellipsis();
+}
+.m-newgoods-money{
+	color: #808080;
+	line-height: 1.8;
+}
+
+// 通用内容模块
+.m-model-box {
+	margin: 25px 25px 0 25px;
+	.m-model-title {
+		.clearfix();
+		height: 30px;
+		line-height: 30px;
+		border-bottom: 2px solid #F6F6F6;
+	}
+	.m-model-content {
+
+	}
+}
+
+
+.m-model-title {
+	.m-title {
+		color: #4D4D4D;
+		font-size: 14px;
+		font-family: "Microsoft Yahei";
+	}
+}
+.m-more-link {
+	color: #666;
+	font-family: "Microsoft Yahei";
+	.fn-right();
+	margin-right: 15px;
+	.f-font-st {
+		margin-left: 2px;
+	}
+	&:hover {
+		color: #666;
+	}
+}
+.m-model-link {
+	color: #808080;
+	font-size: 14px;
+	display: inline-block;
+	position: relative;
+	font-family: "Microsoft Yahei";
+	.f-iconfont {
+		position: absolute;
+	}
+	&:hover, &.f-active {
+		color: #4D4D4D;
+		font-weight: bold;
+	}
+}
+
+.m-info-value {
+	height: 53px;
+	line-height: 53px;
+}
+.m-info-name {
+	color: #666;
+}
+
+.m-favi-good-slide-box {
+	padding-top: 22px;
+	position: relative;
+	.m-prev, .m-next {
+		position: absolute;
+		font-size: 18px;
+		font-weight: 100;
+		color: #808080;
+	}
+	.m-prev {
+		font-size: 19px;
+		left: 8px;
+		top: 46px;
+	}
+	.m-next {
+		right: 8px;
+		top: 50px;
+	}
+}
+.m-favi-good-box {
+	width: 870px;
+	.center-block();
+	.clearfix();
+}

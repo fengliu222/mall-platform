@@ -1,0 +1,8 @@
+{
+	"POST /index/getList":{
+		"name":"moe"
+	},
+	"/list":{
+		"url":"list.html"
+	}
+}

@@ -93,6 +93,9 @@
 			"src":"http://auth.changyou.com/servlet/ImageCode"
 		}
 	},
+	"/mycenter":{
+		"url":"index.html"
+	},
 	"GET /api/getNewgoodsById":{
 		"code":200,
 		"data":{
@@ -118,6 +121,12 @@
 						"img":"http://image.cyg.changyou.com/ldj/debris/UI_Icon_partner_renascence.gif",
 						"src":"###",
 						"name":"破除结界果实×1",
+						"gamePrice":"12000",
+						"sitePrice":"12000"
+						},{
+						"img":"http://image.cyg.changyou.com/ldj/debris/UI_Icon_partner_renascence.gif",
+						"src":"###",
+						"name":"破除结界果实×2",
 						"gamePrice":"12000",
 						"sitePrice":"12000"
 						}]

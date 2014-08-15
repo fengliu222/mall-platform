@@ -54,14 +54,15 @@ define(function(require){
  		
  		/* 更新所有最新上架物品 */
  		function updateAllGoodsList(cont){
- 			Thenjs(function(c){
+ 			var conti = Thenjs(function(c){
  
 	 			/* 加载初始化数据，默认加载所有游戏的最新上架物品 */
 	 			model.getNewgoods(c);
 
 	 			/* 插入DOM中*/            
-	 		}).then(view.updateListContent).all(cont)
-	 		 
+	 		}).then(view.updateListContent)
+	 		if(cont) conti.all(cont);
+
  		}
 
  		/* 更新单个游戏的最新上架物品 */
@@ -85,6 +86,8 @@ define(function(require){
  		 */
  		var FastRecharge = Widget.extend({
  			attrs:{
+ 				/* 平台名*/
+ 				platform: 'cyou',
  				/* 游戏名 */
  				curGame : '.m-fast-gamename',  
 
@@ -159,6 +162,20 @@ define(function(require){
  					display:"验证码",
  					required: true
  				})
+
+ 				/* 快速充值的游戏选择 */
+			 	seajs.use(['arale/select/0.9.9/select'],function(Select){
+			 		var gameSelect = new Select({
+						trigger:'#gameRecharge',
+						classPrefix: 'u-gamerecharge',
+						model:gameList
+					});
+
+					gameSelect.on("change",function(target, prev){
+						// target platform id,
+					})
+			 	});
+
  			},
 
  			/* 点击充值按钮的处理函数 */
